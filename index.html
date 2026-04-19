@@ -17,19 +17,16 @@
             padding: 0;
         }
 
-        /* Estilos de Contenedores de Cristal */
         .glass-card {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
         }
 
         .hero-gradient {
             background: radial-gradient(circle at top, #1e40af 0%, #0f172a 70%);
         }
 
-        /* Botones Profesionales */
         .btn-primary {
             background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             transition: transform 0.2s, box-shadow 0.2s;
@@ -41,42 +38,71 @@
             transition: transform 0.2s, background 0.2s;
         }
 
-        .btn-primary:active, .btn-secondary:active {
-            transform: scale(0.95);
+        /* Estilos Galería Táctil Mejorada */
+        .carousel-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding: 1rem 0.5rem 2rem 0.5rem;
         }
 
-        /* Estilos de la Galería de Imágenes */
         .carousel-item {
-            scroll-snap-align: start;
+            scroll-snap-align: center;
             flex-shrink: 0;
-            width: 85%;
-            margin-right: 1rem;
+            width: 260px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        @media (min-width: 768px) {
-            .carousel-item {
-                width: 45%;
-            }
+        .screenshot-wrapper {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: #1e293b;
+            aspect-ratio: 9/19;
         }
 
         .screenshot-img {
             width: 100%;
-            border-radius: 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            height: 100%;
             object-fit: cover;
         }
 
-        .no-scrollbar::-webkit-scrollbar {
+        .zoom-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.25rem;
+        }
+
+        /* Lightbox (Visualizador Pantalla Completa) */
+        #lightbox {
             display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
         }
 
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        #lightbox-img {
+            max-height: 90vh;
+            max-width: 95vw;
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
         }
 
-        /* Contenedor de Video Responsivo */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -87,36 +113,31 @@
 
         .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+            top: 0; left: 0; width: 100%; height: 100%; border: 0;
         }
 
-        /* Ajustes Táctiles Android */
-        .touch-target {
-            min-height: 48px;
-        }
+        .touch-target { min-height: 48px; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col overflow-x-hidden">
 
-    <!-- CABECERA (HERO SECTION) -->
+    <!-- Lightbox Modal -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white text-5xl z-50">&times;</button>
+        <img id="lightbox-img" src="" alt="Vista previa">
+    </div>
+
+    <!-- CABECERA (HERO) -->
     <header class="hero-gradient pt-12 pb-16 px-6 text-center">
         <div class="max-w-4xl mx-auto">
             <div class="mb-6 inline-block p-3 rounded-2xl bg-blue-600/20 border border-blue-500/30">
                 <i class="fas fa-cloud-upload-alt text-4xl text-blue-400"></i>
             </div>
-            <h1 class="text-4xl md:text-6xl font-800 tracking-tight mb-4 text-white">
-                ILIMITED
-            </h1>
-            <p class="text-xl md:text-2xl text-blue-200 font-light mb-10">
-                La nube ilimitada gratuita definitiva
-            </p>
+            <h1 class="text-4xl md:text-6xl font-800 tracking-tight mb-4 text-white">ILIMITED</h1>
+            <p class="text-xl md:text-2xl text-blue-200 font-light mb-10">La nube ilimitada gratuita definitiva</p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="https://ilimited.k.vu" target="_blank" class="w-full sm:w-auto btn-primary inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-bold shadow-lg shadow-blue-500/20 touch-target text-white">
+                <a href="https://ilimited.k.vu" target="_blank" class="w-full sm:w-auto btn-primary inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-bold shadow-lg shadow-blue-500/20 text-white touch-target">
                     Acceder a la Nube <i class="fas fa-external-link-alt ml-2 text-sm"></i>
                 </a>
                 <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="w-full sm:w-auto btn-secondary inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-bold text-green-400 touch-target">
@@ -132,40 +153,61 @@
     </header>
 
     <main class="flex-grow px-6 -mt-8 pb-12">
-        <div class="max-w-4xl mx-auto space-y-8">
+        <div class="max-w-4xl mx-auto space-y-10">
             
-            <!-- PRESENTACIÓN DE IMÁGENES (GALERÍA) -->
-            <section class="py-4">
-                <h2 class="text-2xl font-bold mb-6 flex items-center px-2">
-                    <i class="fas fa-images text-blue-400 mr-3"></i> Conoce la Interfaz
-                </h2>
-                <div class="flex overflow-x-auto no-scrollbar pb-6 px-2" style="scroll-snap-type: x mandatory;">
+            <!-- GALERÍA DE IMÁGENES -->
+            <section>
+                <div class="flex items-center justify-between mb-4 px-2">
+                    <h2 class="text-2xl font-bold flex items-center">
+                        <i class="fas fa-images text-blue-400 mr-3"></i> Galería del Sistema
+                    </h2>
+                    <span class="text-xs text-slate-500 bg-slate-800/50 px-3 py-1 rounded-full">Toca para ampliar</span>
+                </div>
+                
+                <div class="carousel-container no-scrollbar">
                     <!-- Imagen 1 -->
-                    <div class="carousel-item">
-                        <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-14-41-60_e4424258c8b8649f6e67d283a50a2cbc.jpg" alt="Upload" class="screenshot-img">
-                        <div class="mt-4 p-4 glass-card rounded-2xl">
-                            <p class="text-sm font-semibold text-blue-300">Sube archivos grandes de hasta 5GB y comparte con el mundo.</p>
+                    <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-14-41-60_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
+                        <div class="screenshot-wrapper">
+                            <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-14-41-60_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Subida">
+                            <div class="zoom-overlay">
+                                <p class="text-xs font-semibold text-white">Sube archivos grandes de hasta 5GB y comparte.</p>
+                            </div>
                         </div>
                     </div>
                     <!-- Imagen 2 -->
-                    <div class="carousel-item">
-                        <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-18-25-18_e4424258c8b8649f6e67d283a50a2cbc.jpg" alt="Share" class="screenshot-img">
-                        <div class="mt-4 p-4 glass-card rounded-2xl">
-                            <p class="text-sm font-semibold text-blue-300">Comparte o descarga archivos compartidos por otros usuarios.</p>
+                    <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-18-25-18_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
+                        <div class="screenshot-wrapper">
+                            <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-18-25-18_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Descarga">
+                            <div class="zoom-overlay">
+                                <p class="text-xs font-semibold text-white">Comparte o descarga archivos de otros usuarios.</p>
+                            </div>
                         </div>
                     </div>
                     <!-- Imagen 3 -->
-                    <div class="carousel-item">
-                        <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-20-34-32_e4424258c8b8649f6e67d283a50a2cbc.jpg" alt="Preview" class="screenshot-img">
-                        <div class="mt-4 p-4 glass-card rounded-2xl">
-                            <p class="text-sm font-semibold text-blue-300">Previsualiza contenido: mp4, JPG, PNG, PDF, txt, entre otros.</p>
+                    <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-20-34-32_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
+                        <div class="screenshot-wrapper">
+                            <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-20-34-32_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Previsualización">
+                            <div class="zoom-overlay">
+                                <p class="text-xs font-semibold text-white">Previsualiza contenido: mp4, JPG, PNG, PDF, txt...</p>
+                            </div>
                         </div>
                     </div>
                     <!-- Imagen 4 -->
-                    <div class="carousel-item">
-                        <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-22-34-33_e4424258c8b8649f6e67d283a50a2cbc.jpg" alt="Embed" class="screenshot-img">
-                        <div class="mt-4 p-4 glass-card rounded-2xl">
-                            <p class="text-sm font-semibold text-blue-300">Visualiza contenido en embed: mp4, MP3 o imágenes (PNG, JPG, etc).</p>
+                    <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-22-34-33_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
+                        <div class="screenshot-wrapper">
+                            <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-22-34-33_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Embed">
+                            <div class="zoom-overlay">
+                                <p class="text-xs font-semibold text-white">Visualiza contenido en embed como mp4, MP3 o imágenes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Imagen 5 -->
+                    <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/IMG-20260418-WA0014.jpg')">
+                        <div class="screenshot-wrapper border-red-500/50">
+                            <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/IMG-20260418-WA0014.jpg" class="screenshot-img" alt="Seguridad">
+                            <div class="zoom-overlay bg-red-900/40">
+                                <p class="text-xs font-bold text-red-200 italic">¡Si tu archivo tiene malware será suspendido el enlace!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -174,7 +216,7 @@
             <!-- SOBRE NOSOTROS -->
             <section class="glass-card p-8 rounded-3xl shadow-xl">
                 <h2 class="text-2xl font-bold mb-4 flex items-center">
-                    <i class="fas fa-align-left text-blue-400 mr-3 text-lg"></i> Sobre Nosotros
+                    <i class="fas fa-align-left text-blue-400 mr-3"></i> Sobre Nosotros
                 </h2>
                 <p class="text-slate-300 leading-relaxed">
                     ILIMITED es la solución definitiva para quienes buscan libertad de almacenamiento. Sin cuotas mensuales ni suscripciones ocultas, ofrecemos un espacio infinito para tus archivos, fotos y documentos, permitiendo subir archivos individuales de hasta 5GB de forma totalmente gratuita.
@@ -195,14 +237,14 @@
                 </div>
             </section>
 
-            <!-- INFRAESTRUCTURA -->
+            <!-- INFRAESTRUCTURA Y RESILIENCIA -->
             <section class="glass-card p-8 rounded-3xl border-l-4 border-blue-500">
                 <h2 class="text-2xl font-bold mb-4 flex items-center">
                     <i class="fas fa-server text-blue-400 mr-3"></i> Infraestructura y Resiliencia
                 </h2>
-                <div class="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base">
-                    <p>Garantizamos la máxima disponibilidad de sus datos mediante el uso de <strong>servidores de alta velocidad</strong>. La integridad de su información es nuestra prioridad fundamental.</p>
-                    <p>Contamos con una arquitectura de almacenamiento redundante: si la plataforma principal tuviera una caída, <strong>sus archivos permanecen seguros en servidores independientes</strong>.</p>
+                <div class="space-y-4 text-slate-300 leading-relaxed text-sm">
+                    <p>Garantizamos la máxima disponibilidad de sus datos mediante el uso de <strong>servidores de alta velocidad de última generación</strong>.</p>
+                    <p>Contamos con una arquitectura de almacenamiento redundante: si hubiera una caída, <strong>sus archivos permanecen seguros en servidores independientes</strong>.</p>
                     <p>Ante cualquier incidencia, la restauración es inmediata. <strong>Ningún archivo se pierde</strong>, solo se restaura la interfaz y todo continúa con normalidad.</p>
                 </div>
             </section>
@@ -213,11 +255,11 @@
                     <i class="fas fa-code text-purple-400 mr-3"></i> Integración Web (iFrame)
                 </h2>
                 <div class="space-y-4 text-slate-300 leading-relaxed text-sm">
-                    <p>Al subir un archivo, se genera un enlace con el formato:</p>
+                    <p>ILIMITED permite la integración directa de contenido mediante etiquetas <strong>iFrame</strong>. El formato estándar es:</p>
                     <div class="bg-black/40 p-3 rounded-xl text-center border border-white/5 font-mono text-blue-300">
                         https://ilimited.k.vu/<strong>s</strong>/[ID]
                     </div>
-                    <p>Para usarlo como <strong>visualizador directo (Viewer)</strong> en iFrames, simplemente cambie la <code>s</code> por una <code>v</code>:</p>
+                    <p>Para usarlo como <strong>visualizador directo (Viewer)</strong>, cambie la <code>s</code> por una <code>v</code>:</p>
                     <div class="bg-black/40 p-3 rounded-xl text-center border border-white/5 font-mono text-purple-300">
                         https://ilimited.k.vu/<strong>v</strong>/[ID]
                     </div>
@@ -226,7 +268,7 @@
 
             <!-- VIDEO TUTORIAL -->
             <section class="glass-card p-4 md:p-6 rounded-3xl shadow-xl">
-                <h2 class="text-xl font-bold mb-4 px-2 flex items-center">
+                <h2 class="text-xl font-bold mb-4 px-2 flex items-center text-white">
                     <i class="fab fa-youtube text-red-500 mr-3"></i> Tutorial y Presentación
                 </h2>
                 <div class="video-container shadow-2xl">
@@ -234,14 +276,14 @@
                 </div>
             </section>
 
-            <!-- SOPORTE WHATSAPP -->
+            <!-- SOPORTE Y COMUNIDAD -->
             <section class="glass-card p-8 rounded-3xl border border-green-500/30 bg-green-500/5">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div class="flex-1 text-center md:text-left">
                         <h2 class="text-2xl font-bold mb-2 text-green-400">
                             <i class="fas fa-headset mr-3"></i> Soporte al Usuario
                         </h2>
-                        <p class="text-slate-300 text-sm md:text-base leading-relaxed">¿Dudas o soporte técnico? Únete al grupo oficial para asistencia personalizada y novedades de la nube.</p>
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed">¿Dudas o soporte técnico? Únete al grupo oficial para asistencia personalizada y novedades.</p>
                     </div>
                     <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-6 rounded-2xl flex items-center transition-all shadow-lg shadow-green-900/20 touch-target">
                         <i class="fab fa-whatsapp text-xl mr-2"></i> Unirse al Grupo
@@ -261,27 +303,27 @@
                     </div>
                     <div class="flex items-start">
                         <i class="fas fa-lock mt-1 mr-4 text-amber-500"></i>
-                        <p class="text-slate-200 text-sm leading-relaxed">Para archivos muy privados, subirlos en un <strong>archivo comprimido (ZIP o RAR) con contraseña</strong>.</p>
+                        <p class="text-slate-200 text-sm leading-relaxed">Para archivos privados, subirlos dentro de un <strong>archivo comprimido (ZIP o RAR) con contraseña</strong>.</p>
                     </div>
                 </div>
             </section>
 
             <!-- REDES SOCIALES -->
-            <section class="pb-8">
+            <section class="pb-12">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <a href="https://www.facebook.com/share/18Q67geZDX/" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-blue-600/10 touch-target">
+                    <a href="https://www.facebook.com/share/18Q67geZDX/" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-blue-600/10 transition-colors touch-target">
                         <i class="fab fa-facebook text-2xl text-blue-500 mb-2"></i>
                         <span class="text-xs font-semibold">Facebook</span>
                     </a>
-                    <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-red-600/10 touch-target">
+                    <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-red-600/10 transition-colors touch-target">
                         <i class="fab fa-youtube text-2xl text-red-500 mb-2"></i>
                         <span class="text-xs font-semibold text-white">YouTube</span>
                     </a>
-                    <a href="https://www.instagram.com/bryancortesz4k?igsh=b2IwMTcwN3kyb21p" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-pink-600/10 touch-target">
+                    <a href="https://www.instagram.com/bryancortesz4k?igsh=b2IwMTcwN3kyb21p" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-pink-600/10 transition-colors touch-target">
                         <i class="fab fa-instagram text-2xl text-pink-500 mb-2"></i>
                         <span class="text-xs font-semibold">Instagram</span>
                     </a>
-                    <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-green-600/10 touch-target">
+                    <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-green-600/10 transition-colors touch-target">
                         <i class="fab fa-whatsapp text-2xl text-green-500 mb-2"></i>
                         <span class="text-xs font-semibold">Canal WhatsApp</span>
                     </a>
@@ -291,10 +333,30 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="py-8 border-t border-slate-800 text-center text-slate-500 text-sm bg-[#0a0f1d]">
+    <footer class="py-10 border-t border-slate-800 text-center text-slate-500 text-sm bg-[#0a0f1d]">
         <p>Desarrollado por <span class="text-blue-400 font-semibold">KodxStudios</span></p>
-        <p class="mt-2 text-xs opacity-50">&copy; 2024 ILIMITED. Todo queda guardado de forma redundante.</p>
+        <p class="mt-2 text-xs opacity-50">&copy; 2024 ILIMITED. Almacenamiento Seguro.</p>
     </footer>
 
+    <script>
+        function openLightbox(src) {
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lb.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar con tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
 </body>
 </html>
