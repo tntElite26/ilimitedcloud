@@ -163,6 +163,15 @@
             display: none;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
+
+        .id-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col overflow-x-hidden text-slate-200">
@@ -228,18 +237,40 @@
     <main class="flex-grow px-6 -mt-8 pb-12">
         <div class="max-w-4xl mx-auto space-y-10">
             
-            <!-- NUEVA SECCIÓN: ENLACES DE RESPALDO -->
-            <section class="glass-card p-6 rounded-3xl border-orange-500/20 bg-orange-500/5 shadow-xl">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="text-center md:text-left">
-                        <h2 class="text-lg font-bold text-orange-400 flex items-center justify-center md:justify-start">
-                            <i class="fas fa-globe mr-2"></i> Acceso Alternativo
-                        </h2>
-                        <p class="text-sm text-slate-400 mt-1">Si tienes problemas con el enlace principal, puedes ingresar desde el enlace global:</p>
+            <!-- SECCIÓN: ENLACES DE RESPALDO Y ACLARACIÓN DE COMPATIBILIDAD -->
+            <section class="glass-card p-0 rounded-3xl border-orange-500/20 bg-orange-500/5 shadow-xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
+                        <div class="text-center md:text-left">
+                            <h2 class="text-lg font-bold text-orange-400 flex items-center justify-center md:justify-start">
+                                <i class="fas fa-globe mr-2"></i> Acceso Alternativo
+                            </h2>
+                            <p class="text-sm text-slate-400 mt-1">Si tienes problemas con el enlace principal, puedes ingresar desde el enlace global:</p>
+                        </div>
+                        <a href="https://globalilimited.k.vu/" target="_blank" class="btn-global px-6 py-3 rounded-2xl font-bold text-sm flex items-center gap-2 hover:scale-105 active:scale-95 touch-target">
+                            Ingresar vía Enlace Global <i class="fas fa-chevron-right text-xs"></i>
+                        </a>
                     </div>
-                    <a href="https://globalilimited.k.vu/" target="_blank" class="btn-global px-6 py-3 rounded-2xl font-bold text-sm flex items-center gap-2 hover:scale-105 active:scale-95 touch-target">
-                        Ingresar vía Enlace Global <i class="fas fa-chevron-right text-xs"></i>
-                    </a>
+                    
+                    <div class="bg-black/20 p-4 rounded-2xl border border-white/5">
+                        <h3 class="text-sm font-bold text-white mb-2 flex items-center">
+                            <i class="fas fa-sync-alt text-blue-400 mr-2"></i> Compatibilidad Total de Enlaces
+                        </h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Ambos dominios están sincronizados al 100%. Esto significa que cualquier archivo que subas genera un <span class="id-highlight">ID de Enlace</span> universal. Si copias lo que está después de <span class="text-blue-400">/s/</span>, funcionará en ambos sitios:
+                        </p>
+                        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-2 text-[10px] md:text-xs font-mono">
+                            <div class="p-2 bg-slate-900/80 rounded border border-blue-500/20 text-blue-200">
+                                ilimited.k.vu/s/<span class="text-white font-bold">TU_ARCHIVO_ID</span>
+                            </div>
+                            <div class="p-2 bg-slate-900/80 rounded border border-orange-500/20 text-orange-200">
+                                globalilimited.k.vu/s/<span class="text-white font-bold">TU_ARCHIVO_ID</span>
+                            </div>
+                        </div>
+                        <p class="mt-3 text-[10px] text-slate-500 italic">
+                            *No importa el dominio que uses, tus archivos estarán siempre accesibles.
+                        </p>
+                    </div>
                 </div>
             </section>
 
