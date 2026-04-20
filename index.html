@@ -43,7 +43,7 @@
             transition: transform 0.2s;
         }
 
-        /* Estilos Galería Táctil Mejorada */
+        /* Galería Táctil con Scroll Horizontal */
         .carousel-container {
             display: flex;
             overflow-x: auto;
@@ -57,7 +57,6 @@
             flex-shrink: 0;
             width: 260px;
             cursor: pointer;
-            transition: transform 0.3s ease;
         }
 
         .screenshot-wrapper {
@@ -85,7 +84,7 @@
             padding: 1.25rem;
         }
 
-        /* Lightbox (Visualizador Pantalla Completa) */
+        /* Lightbox (Visualizador) */
         #lightbox {
             display: none;
             position: fixed;
@@ -170,7 +169,6 @@
                 </div>
                 
                 <div class="carousel-container no-scrollbar">
-                    <!-- Imagen 1 -->
                     <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-14-41-60_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
                         <div class="screenshot-wrapper">
                             <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-14-41-60_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Subida">
@@ -179,7 +177,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Imagen 2 -->
                     <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-18-25-18_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
                         <div class="screenshot-wrapper">
                             <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-18-25-18_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Descarga">
@@ -188,7 +185,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Imagen 3 -->
                     <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-20-34-32_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
                         <div class="screenshot-wrapper">
                             <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-20-34-32_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Previsualización">
@@ -197,7 +193,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Imagen 4 -->
                     <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-22-34-33_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
                         <div class="screenshot-wrapper">
                             <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-22-34-33_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Embed">
@@ -206,7 +201,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Imagen 5 -->
                     <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/IMG-20260418-WA0014.jpg')">
                         <div class="screenshot-wrapper border-red-500/50">
                             <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/IMG-20260418-WA0014.jpg" class="screenshot-img" alt="Seguridad">
@@ -218,7 +212,7 @@
                 </div>
             </section>
 
-            <!-- NUEVA SECCIÓN: FORO OFICIAL -->
+            <!-- SECCIÓN: FORO OFICIAL -->
             <section class="glass-card p-8 rounded-3xl border border-purple-500/30 bg-purple-600/5 shadow-2xl overflow-hidden relative">
                 <div class="absolute -right-10 -top-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
                 <div class="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
@@ -230,7 +224,7 @@
                             Forma parte de nuestro <strong>foro oficial</strong>. Un espacio para compartir, debatir y estar al día con todas las novedades de KodxStudios y la comunidad ILIMITED.
                         </p>
                     </div>
-                    <a href="https://kodsocial.k.vu" target="_blank" class="w-full md:w-auto btn-social hover:scale-105 active:scale-95 text-white font-800 py-4 px-10 rounded-2xl flex items-center justify-center transition-all shadow-xl shadow-purple-900/20 touch-target">
+                    <a href="https://kodxsocial.k.vu/" target="_blank" class="w-full md:w-auto btn-social hover:scale-105 active:scale-95 text-white font-800 py-4 px-10 rounded-2xl flex items-center justify-center transition-all shadow-xl shadow-purple-900/20 touch-target">
                         Ir al Foro Oficial <i class="fas fa-chevron-right ml-3 text-sm"></i>
                     </a>
                 </div>
@@ -260,7 +254,7 @@
                 </div>
             </section>
 
-            <!-- INFRAESTRUCTURA Y RESILIENCIA -->
+            <!-- INFRAESTRUCTURA -->
             <section class="glass-card p-8 rounded-3xl border-l-4 border-blue-500">
                 <h2 class="text-2xl font-bold mb-4 flex items-center">
                     <i class="fas fa-server text-blue-400 mr-3"></i> Infraestructura y Resiliencia
@@ -299,7 +293,7 @@
                 </div>
             </section>
 
-            <!-- SOPORTE Y COMUNIDAD -->
+            <!-- SOPORTE -->
             <section class="glass-card p-8 rounded-3xl border border-green-500/30 bg-green-500/5">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div class="flex-1 text-center md:text-left">
