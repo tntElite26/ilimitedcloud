@@ -71,6 +71,18 @@
             border-color: rgba(255, 255, 255, 0.3);
         }
 
+        /* Anuncio superior animado */
+        .announcement-bar {
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #1e3a8a 100%);
+            background-size: 200% auto;
+            animation: gradient-flow 5s linear infinite;
+        }
+
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
         /* Galería Táctil */
         .carousel-container {
             display: flex;
@@ -175,6 +187,11 @@
     </style>
 </head>
 <body class="min-h-screen flex flex-col overflow-x-hidden text-slate-200">
+
+    <!-- BARRA DE ANUNCIO SUPERIOR -->
+    <div class="announcement-bar w-full py-2.5 px-4 text-center text-white text-xs md:text-sm font-bold shadow-lg z-50">
+        <i class="fas fa-info-circle mr-2"></i> ¡Hemos cambiado nuestro dominio por uno de pago! :)
+    </div>
 
     <!-- Toast para notificaciones -->
     <div id="share-toast" class="share-toast">¡Enlace copiado al portapapeles!</div>
