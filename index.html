@@ -78,6 +78,11 @@
             animation: gradient-flow 5s linear infinite;
         }
 
+        .domain-notice-bar {
+            background: #1e293b;
+            border-bottom: 2px solid #3b82f6;
+        }
+
         @keyframes gradient-flow {
             0% { background-position: 0% 50%; }
             100% { background-position: 200% 50%; }
@@ -191,6 +196,19 @@
     <!-- BARRA DE ANUNCIO SUPERIOR -->
     <div class="announcement-bar w-full py-2.5 px-4 text-center text-white text-xs md:text-sm font-bold shadow-lg z-50">
         <i class="fas fa-info-circle mr-2"></i> ¡Hemos cambiado nuestro dominio por uno de pago! :)
+    </div>
+
+    <!-- AVISO DE MIGRACIÓN DE ARCHIVOS -->
+    <div class="domain-notice-bar w-full py-4 px-6 text-center z-40">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-sm md:text-base text-slate-200 leading-relaxed">
+                <i class="fas fa-exclamation-triangle text-blue-400 mr-2"></i>
+                Hemos cambiado de dominio, pero <strong>tus archivos siguen intactos</strong>. Si tienes el enlace guardado, simplemente copia lo que está después de la <strong>/s/</strong> y ponlo en el nuevo dominio: 
+                <span class="inline-block bg-blue-600/20 text-blue-300 px-2 py-0.5 rounded font-mono text-xs md:text-sm border border-blue-500/30 ml-1">
+                    ilimited.one/s/[ID]
+                </span>
+            </p>
+        </div>
     </div>
 
     <!-- Toast para notificaciones -->
