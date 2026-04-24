@@ -46,7 +46,6 @@
             border-color: rgba(59, 130, 246, 0.3);
         }
 
-        /* Simulación de Estado Estilizada */
         .status-card {
             background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.4));
             border: 1px solid rgba(255, 255, 255, 0.03);
@@ -54,6 +53,12 @@
             padding: 1.25rem;
             border-radius: 1.25rem;
             transition: all 0.3s ease;
+        }
+
+        .storage-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-left: 4px solid #3b82f6;
         }
 
         .status-pill {
@@ -150,6 +155,26 @@
         .stat-value {
             transition: all 0.5s ease-out;
         }
+
+        .infinite-progress {
+            position: relative;
+            height: 4px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .infinite-progress-bar {
+            position: absolute;
+            height: 100%;
+            background: #3b82f6;
+            width: 30%;
+            left: -30%;
+            animation: slide 3s infinite linear;
+        }
+        @keyframes slide {
+            0% { left: -30%; }
+            100% { left: 100%; }
+        }
     </style>
 </head>
 <body class="pt-20">
@@ -212,7 +237,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: ESTADO DE SERVIDORES (Dinámica en tiempo real) -->
+        <!-- SECCIÓN: ESTADO DE SERVIDORES (Completo) -->
         <section class="space-y-4 px-2">
             <div class="flex items-center justify-between">
                 <h3 class="text-sm font-bold uppercase tracking-widest text-slate-500">Infraestructura Real-Time</h3>
@@ -220,15 +245,34 @@
                     <div class="pulse-dot"></div> Online
                 </div>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-3">
+                <!-- Panel de Almacenamiento (Inicia en 650GB) -->
+                <div class="status-card storage-card col-span-2 lg:col-span-1">
+                    <div class="flex items-center justify-between mb-2 text-blue-400">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-database text-xs"></i>
+                            <span class="text-[10px] font-bold uppercase">Uso Global</span>
+                        </div>
+                        <i class="fas fa-infinity text-[8px] opacity-50"></i>
+                    </div>
+                    <div class="flex items-baseline gap-1 mb-2">
+                        <span class="text-xl font-black text-white tracking-tighter" id="stat-storage">650.00</span>
+                        <span class="text-[9px] text-blue-400 font-bold uppercase" id="storage-unit">GB</span>
+                    </div>
+                    <div class="infinite-progress">
+                        <div class="infinite-progress-bar"></div>
+                    </div>
+                </div>
+
+                <!-- Stats de Red -->
                 <div class="status-card">
                     <div class="flex items-center gap-2 mb-2 text-slate-400">
                         <i class="fas fa-clock text-xs"></i>
-                        <span class="text-[10px] font-bold uppercase">Uptime Global</span>
+                        <span class="text-[10px] font-bold uppercase">Uptime</span>
                     </div>
                     <div class="flex items-baseline gap-1">
                         <span class="text-xl font-bold text-white stat-value" id="stat-uptime">99.98%</span>
-                        <span class="text-[9px] text-green-400 font-bold">100%</span>
                     </div>
                 </div>
                 <div class="status-card">
@@ -238,7 +282,6 @@
                     </div>
                     <div class="flex items-baseline gap-1">
                         <span class="text-xl font-bold text-white stat-value" id="stat-latency">--ms</span>
-                        <span class="text-[9px] text-green-400 font-bold uppercase tracking-tighter">óptima</span>
                     </div>
                 </div>
                 <div class="status-card">
@@ -248,7 +291,6 @@
                     </div>
                     <div class="flex items-baseline gap-1">
                         <span class="text-xl font-bold text-white stat-value" id="stat-load">--%</span>
-                        <span class="text-[9px] text-green-400 font-bold uppercase tracking-tighter">baja</span>
                     </div>
                 </div>
                 <div class="status-card">
@@ -257,8 +299,8 @@
                         <span class="text-[10px] font-bold uppercase">Red CDN</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="text-lg font-bold text-white uppercase text-xs">Activa</span>
-                        <i class="fas fa-check-circle text-green-500 text-xs"></i>
+                        <span class="text-xs font-bold text-white uppercase">Activa</span>
+                        <i class="fas fa-check-circle text-green-500 text-[10px]"></i>
                     </div>
                 </div>
             </div>
@@ -321,7 +363,7 @@
             </section>
         </div>
 
-        <!-- Galería de Interfaz (ACTUALIZADA CON NUEVOS ENLACES) -->
+        <!-- Galería de Interfaz -->
         <section class="space-y-6">
             <h3 class="text-xl font-bold px-2">Vistas del Ecosistema</h3>
             <div class="flex gap-6 overflow-x-auto no-scrollbar pb-4 px-2">
@@ -423,34 +465,54 @@
 
     <script>
         const TARGET_URL = "https://cloud.ilimited.workers.dev/";
+        
+        // El espacio comienza en 650.00 GB
+        let currentStorage = 650.00;
+        let isTB = false;
 
         function updateLiveStats() {
+            // Stats de red normales
             const uptime = (99.95 + (Math.random() * 0.04)).toFixed(2);
             const latency = Math.floor(18 + (Math.random() * 27));
             const cpuLoad = Math.floor(4 + (Math.random() * 14));
 
-            const uptimeEl = document.getElementById('stat-uptime');
-            const latencyEl = document.getElementById('stat-latency');
-            const cpuEl = document.getElementById('stat-load');
+            document.getElementById('stat-uptime').innerText = uptime + '%';
+            document.getElementById('stat-latency').innerText = latency + 'ms';
+            if(document.getElementById('stat-load')) document.getElementById('stat-load').innerText = cpuLoad + '%';
+        }
 
-            uptimeEl.style.opacity = 0.7;
-            latencyEl.style.opacity = 0.7;
-            cpuEl.style.opacity = 0.7;
+        function updateStorageProgress() {
+            // Aumento muy lento y progresivo (GB)
+            const increment = (Math.random() * 0.005) + 0.001; 
+            currentStorage += increment;
+            
+            const storageEl = document.getElementById('stat-storage');
+            const unitEl = document.getElementById('storage-unit');
+            
+            // Si supera 1024 GB, cambiar visualmente a TB para realismo (opcional, pero aquí lo mantengo dinámico)
+            let displayVal = currentStorage;
+            if (currentStorage >= 1024 && !isTB) {
+                // Si prefieres que siempre muestre TB como antes, cambia el inicio a 1248 y isTB a true
+                // Pero aquí respetamos el inicio de 650GB solicitado
+            }
 
-            setTimeout(() => {
-                uptimeEl.innerText = uptime + '%';
-                latencyEl.innerText = latency + 'ms';
-                cpuEl.innerText = cpuLoad + '%';
-                
-                uptimeEl.style.opacity = 1;
-                latencyEl.style.opacity = 1;
-                cpuEl.style.opacity = 1;
-            }, 300);
+            storageEl.innerText = displayVal.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+
+            // Pequeño efecto de brillo al actualizar
+            storageEl.style.color = "#60a5fa";
+            setTimeout(() => { storageEl.style.color = "white"; }, 500);
         }
 
         window.onload = function() {
             updateLiveStats();
+            // Stats de red cada 4 segundos
             setInterval(updateLiveStats, 4000);
+            
+            // Almacenamiento cada 5 segundos (progresión lenta desde 650)
+            setInterval(updateStorageProgress, 5000);
         };
 
         function openLightbox(src) {
