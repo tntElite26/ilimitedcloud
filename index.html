@@ -197,6 +197,25 @@
             border-bottom: 1px solid rgba(59, 130, 246, 0.2);
             font-weight: 700;
         }
+
+        /* Donation Section Custom Styles */
+        .donation-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.6));
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+        .donation-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+            transform: translateY(-5px);
+        }
+
+        /* Legacy Section Style */
+        .legacy-tag {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            transition: color 0.3s ease;
+        }
     </style>
 </head>
 <body class="pt-20">
@@ -213,7 +232,7 @@
             <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
                 <a href="#infraestructura" class="hover:text-white transition-colors">Infraestructura</a>
                 <a href="#comparativa" class="hover:text-white transition-colors">Comparativa</a>
-                <a href="#novedades" class="hover:text-white transition-colors">Novedades</a>
+                <a href="#donaciones" class="hover:text-white transition-colors">Donar</a>
                 <a href="#asociados" class="hover:text-white transition-colors">Asociados</a>
             </div>
             <div class="flex items-center gap-4">
@@ -256,6 +275,17 @@
                         globalilimited.k.vu <i class="fas fa-chevron-right ml-2"></i>
                     </a>
                 </div>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN: DE LOS CREADORES DE (LEGADO) -->
+        <section class="py-4 border-y border-white/5">
+            <p class="text-center md:text-left text-slate-500 text-xs font-bold uppercase tracking-widest mb-4 px-2">De los Creadores de</p>
+            <div class="flex flex-wrap justify-center md:justify-start items-center gap-x-10 gap-y-4 px-2">
+                <span class="legacy-tag text-xl text-slate-300 hover:text-blue-400">Lolabits</span>
+                <span class="legacy-tag text-xl text-slate-300 hover:text-blue-400">BayFiles</span>
+                <span class="legacy-tag text-xl text-slate-300 hover:text-blue-400">AnonFiles</span>
+                <span class="legacy-tag text-xl text-slate-300 hover:text-blue-400">PlayGo!</span>
             </div>
         </section>
 
@@ -408,6 +438,42 @@
             </div>
         </section>
 
+        <!-- SECCIÓN: DONACIONES VOLUNTARIAS -->
+        <section id="donaciones" class="space-y-8 py-4">
+            <div class="px-2 text-center md:text-left">
+                <h3 class="text-2xl font-bold flex items-center justify-center md:justify-start gap-3">
+                    <i class="fas fa-heart text-red-500"></i> Donaciones Voluntarias
+                </h3>
+                <p class="text-slate-400 text-sm mt-2">Mantenemos el servicio gratuito gracias a tu apoyo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
+                <!-- PayPal -->
+                <a href="https://www.paypal.me/kodxstudios" target="_blank" class="donation-card p-8 rounded-3xl flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                        <i class="fab fa-paypal text-3xl text-blue-500"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">PayPal</h4>
+                    <p class="text-slate-400 text-xs mb-6">Apoyo para mantenimiento de servidores internacionales.</p>
+                    <span class="text-blue-500 font-bold text-sm flex items-center gap-2">
+                        Donar Ahora <i class="fas fa-external-link-alt text-[10px]"></i>
+                    </span>
+                </a>
+
+                <!-- Davivienda -->
+                <div onclick="copyDonationID('DAVIBCA061', 'Davivienda')" class="donation-card p-8 rounded-3xl flex flex-col items-center text-center cursor-pointer group">
+                    <div class="w-16 h-16 bg-red-500/10 rounded-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                        <i class="fas fa-university text-3xl text-red-500"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Davivienda</h4>
+                    <p class="text-slate-400 text-xs mb-6">ID: @DAVIBCA061 <br> (Haz clic para copiar el código)</p>
+                    <span id="copy-label-dav" class="text-red-500 font-bold text-sm flex items-center gap-2">
+                        Copiar ID <i class="fas fa-copy text-[10px]"></i>
+                    </span>
+                </div>
+            </div>
+        </section>
+
         <!-- SECCIÓN DE ASOCIADOS -->
         <section id="asociados" class="space-y-6">
             <h3 class="text-xl font-bold px-2 flex items-center gap-2">
@@ -419,6 +485,14 @@
                     <div>
                         <p class="text-[10px] text-slate-500 uppercase font-bold">Seguridad & Red</p>
                         <p class="text-xs font-semibold">cloudflare.com</p>
+                    </div>
+                </div>
+                <!-- NUEVO ASOCIADO: GITHUB -->
+                <div class="partner-card">
+                    <i class="fab fa-github text-white text-2xl"></i>
+                    <div>
+                        <p class="text-[10px] text-slate-500 uppercase font-bold">Open Source</p>
+                        <p class="text-xs font-semibold">github.com</p>
                     </div>
                 </div>
                 <div class="partner-card">
@@ -433,13 +507,6 @@
                     <div>
                         <p class="text-[10px] text-slate-500 uppercase font-bold">Video Decentralizado</p>
                         <p class="text-xs font-semibold">d.tube</p>
-                    </div>
-                </div>
-                <div class="partner-card">
-                    <i class="fab fa-mastodon text-purple-500 text-2xl"></i>
-                    <div>
-                        <p class="text-[10px] text-slate-500 uppercase font-bold">Red Social Federada</p>
-                        <p class="text-xs font-semibold">Mastodon</p>
                     </div>
                 </div>
             </div>
@@ -595,6 +662,20 @@
             const btn = event.currentTarget;
             btn.innerHTML = '<i class="fas fa-check text-green-500"></i> ¡Copiado!';
             setTimeout(() => { btn.innerHTML = '<i class="fas fa-link opacity-50"></i> Copiar URL'; }, 2000);
+        }
+
+        function copyDonationID(text, provider) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            const label = document.getElementById('copy-label-dav');
+            const originalText = label.innerHTML;
+            label.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+            setTimeout(() => { label.innerHTML = originalText; }, 2000);
         }
 
         async function shareVercel() {
