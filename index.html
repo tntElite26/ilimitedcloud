@@ -32,6 +32,11 @@
             border: 1px solid rgba(59, 130, 246, 0.3);
         }
 
+        .infra-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
         .btn-primary {
             background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             transition: transform 0.2s, box-shadow 0.2s;
@@ -76,11 +81,6 @@
             background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #1e3a8a 100%);
             background-size: 200% auto;
             animation: gradient-flow 5s linear infinite;
-        }
-
-        .domain-notice-bar {
-            background: #1e293b;
-            border-bottom: 2px solid #3b82f6;
         }
 
         @keyframes gradient-flow {
@@ -198,19 +198,6 @@
         <i class="fas fa-info-circle mr-2"></i> ¡Hemos cambiado nuestro dominio por uno de pago! :)
     </div>
 
-    <!-- AVISO DE MIGRACIÓN DE ARCHIVOS -->
-    <div class="domain-notice-bar w-full py-4 px-6 text-center z-40">
-        <div class="max-w-4xl mx-auto">
-            <p class="text-sm md:text-base text-slate-200 leading-relaxed">
-                <i class="fas fa-exclamation-triangle text-blue-400 mr-2"></i>
-                Hemos cambiado de dominio, pero <strong>tus archivos siguen intactos</strong>. Si tienes el enlace guardado, simplemente copia lo que está después de la <strong>/s/</strong> y ponlo en el nuevo dominio: 
-                <span class="inline-block bg-blue-600/20 text-blue-300 px-2 py-0.5 rounded font-mono text-xs md:text-sm border border-blue-500/30 ml-1">
-                    ilimited.one/s/[ID]
-                </span>
-            </p>
-        </div>
-    </div>
-
     <!-- Toast para notificaciones -->
     <div id="share-toast" class="share-toast">¡Enlace copiado al portapapeles!</div>
 
@@ -271,6 +258,33 @@
 
     <main class="flex-grow px-6 -mt-8 pb-12">
         <div class="max-w-4xl mx-auto space-y-10">
+            
+            <!-- SECCIÓN: MENSAJE PROFESIONAL DE INFRAESTRUCTURA -->
+            <section class="infra-gradient p-8 rounded-3xl shadow-2xl relative overflow-hidden group border-blue-500/30">
+                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-all duration-700"></div>
+                <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-20 h-20 bg-blue-600/20 rounded-2xl flex items-center justify-center border border-blue-500/40 shadow-inner">
+                            <i class="fas fa-microchip text-4xl text-blue-400"></i>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h2 class="text-xl md:text-2xl font-bold text-white mb-3">Tecnología de Clase Mundial</h2>
+                        <p class="text-slate-300 leading-relaxed">
+                            A diferencia de otros servicios, <span class="text-blue-400 font-bold">no dependemos de cPanel ni hostings compartidos</span> de terceros. 
+                            Hemos diseñado nuestra propia arquitectura utilizando la <span class="text-white font-semibold">misma infraestructura escalable de las nubes gigantes</span> para garantizar que tus datos siempre estén disponibles y seguros.
+                        </p>
+                        <div class="mt-4 flex flex-wrap justify-center md:justify-start gap-4">
+                            <span class="flex items-center text-xs text-blue-300 bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20">
+                                <i class="fas fa-check-double mr-2"></i> Sin cuotas de hosting
+                            </span>
+                            <span class="flex items-center text-xs text-blue-300 bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20">
+                                <i class="fas fa-bolt mr-2"></i> Latencia mínima
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
             <!-- SECCIÓN: ENLACES DE RESPALDO Y ACLARACIÓN DE COMPATIBILIDAD -->
             <section class="glass-card p-0 rounded-3xl border-orange-500/20 bg-orange-500/5 shadow-xl overflow-hidden">
@@ -373,44 +387,50 @@
                 </h2>
                 
                 <div class="space-y-6 text-slate-200 text-sm md:text-base leading-relaxed">
-                    <div>
-                        <p class="font-bold text-lg text-blue-300 mb-2">🚀 ¡Nueva Actualización en Ilimited: Más Control y Transparencia!</p>
-                        <p>Estamos comprometidos con mejorar la experiencia de todos nuestros usuarios. Hoy lanzamos una serie de herramientas clave para hacer de Ilimited un lugar más seguro y funcional.</p>
+                    <div class="bg-white/5 p-5 rounded-2xl border border-white/10">
+                        <h3 class="font-bold text-lg text-blue-300 mb-3 flex items-center">
+                            <i class="fas fa-magic mr-2"></i> Evolución de ILIMITED
+                        </h3>
+                        <ul class="space-y-3 list-none">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-400 mt-1 mr-3"></i>
+                                <span><strong>Nuevo Diseño:</strong> Interfaz completamente renovada, más moderna y optimizada para dispositivos móviles.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-user-plus text-blue-400 mt-1 mr-3"></i>
+                                <span><strong>Registro con Google:</strong> Ahora puedes crear tu cuenta de forma instantánea usando tu cuenta de Google.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-columns text-blue-400 mt-1 mr-3"></i>
+                                <span><strong>Panel de Usuario:</strong> Gestiona todos tus archivos desde un panel centralizado. Visualiza el almacenamiento utilizado, copia enlaces rápidamente o elimina archivos que ya no necesites.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-play-circle text-blue-400 mt-1 mr-3"></i>
+                                <span><strong>Embed y Video:</strong> Previsualización de videos integrada y capacidad de copiar el código embed para insertar en tus propias webs.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-heart text-pink-400 mt-1 mr-3"></i>
+                                <span><strong>Donación Voluntaria:</strong> Integración de botón de donaciones para apoyar el mantenimiento de los servidores ilimitados.</span>
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="bg-slate-800/40 p-5 rounded-2xl border border-white/5">
                             <h3 class="font-bold text-white mb-2 flex items-center">
-                                <i class="fas fa-shield-virus text-green-400 mr-2"></i> Sistema de Reportes
+                                <i class="fas fa-gavel text-yellow-400 mr-2"></i> Legal y Transparencia
                             </h3>
-                            <p class="text-xs text-slate-400">Si encuentras un enlace que infringe nuestras normas, puedes reportarlo directamente. Esto nos ayuda a mantener la comunidad limpia y segura.</p>
+                            <div class="flex flex-wrap gap-2 text-[10px]">
+                                <span class="bg-slate-900 px-2 py-1 rounded border border-white/10">Términos de Uso</span>
+                                <span class="bg-slate-900 px-2 py-1 rounded border border-white/10">Privacidad</span>
+                                <span class="bg-slate-900 px-2 py-1 rounded border border-white/10">FAQ Integrado</span>
+                            </div>
                         </div>
                         <div class="bg-slate-800/40 p-5 rounded-2xl border border-white/5">
                             <h3 class="font-bold text-white mb-2 flex items-center">
-                                <i class="fas fa-chart-bar text-blue-400 mr-2"></i> Contador de Descargas
+                                <i class="fas fa-chart-bar text-blue-400 mr-2"></i> Estadísticas Reales
                             </h3>
-                            <p class="text-xs text-slate-400">¿Quieres saber qué tan popular es un archivo? Ahora cada enlace muestra cuántas veces ha sido descargado. ¡La transparencia es prioridad!</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-blue-600/10 p-6 rounded-2xl border border-blue-500/20">
-                        <h3 class="font-bold text-white mb-3 flex items-center">
-                            <i class="fas fa-eye text-blue-400 mr-2"></i> Previsualización Multimedia
-                        </h3>
-                        <p class="mb-4 text-sm">Ya no necesitas descargar a ciegas. Soporte para:</p>
-                        <div class="grid grid-cols-3 gap-3 text-center">
-                            <div class="p-2 bg-slate-900/60 rounded-xl border border-white/5">
-                                <i class="fas fa-play-circle text-blue-400 mb-1"></i>
-                                <p class="text-[10px] font-bold">VIDEO (MP4)</p>
-                            </div>
-                            <div class="p-2 bg-slate-900/60 rounded-xl border border-white/5">
-                                <i class="fas fa-file-pdf text-red-400 mb-1"></i>
-                                <p class="text-[10px] font-bold">DOCS (PDF/TXT)</p>
-                            </div>
-                            <div class="p-2 bg-slate-900/60 rounded-xl border border-white/5">
-                                <i class="fas fa-image text-green-400 mb-1"></i>
-                                <p class="text-[10px] font-bold">IMÁGENES</p>
-                            </div>
+                            <p class="text-xs text-slate-400">Contador de descargas y visualizaciones en tiempo real para cada uno de tus archivos.</p>
                         </div>
                     </div>
 
@@ -436,9 +456,9 @@
                         </div>
                     </div>
 
-                    <div class="bg-amber-500/5 p-4 rounded-xl border border-amber-500/10">
+                    <div class="bg-amber-500/5 p-4 rounded-xl border border-amber-500/10 text-center">
                         <p class="text-xs text-amber-200/70 italic">
-                            💡 <strong>Nota:</strong> Estas funciones son parte del plan de optimización 2026. ¿Qué te parece el nuevo sistema de previsualización? ¡Te leemos en el grupo de soporte!
+                            💡 <strong>Tip:</strong> Todo tu contenido se sincroniza automáticamente entre dominios.
                         </p>
                     </div>
                 </div>
