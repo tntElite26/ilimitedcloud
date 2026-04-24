@@ -147,7 +147,6 @@
             }
         }
 
-        /* Animación suave para cambio de números */
         .stat-value {
             transition: all 0.5s ease-out;
         }
@@ -194,19 +193,19 @@
                 <p class="text-slate-400 text-lg max-w-xl">Almacenamiento infinito y gratuito. Subidas de hasta 5GB sin restricciones de hosting tradicional.</p>
                 
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="w-full sm:w-auto bg-slate-800 text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-3 border border-white/5">
+                    <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="w-full sm:w-auto bg-slate-800 text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-3 border border-white/5 text-sm transition-all hover:bg-slate-700">
                         <i class="fab fa-whatsapp text-green-500 text-xl"></i> Soporte Oficial
                     </a>
-                    <button onclick="copyVercel()" class="w-full sm:w-auto bg-white/5 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 border border-white/5">
+                    <button onclick="copyVercel()" class="w-full sm:w-auto bg-white/5 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 border border-white/5 text-sm transition-all hover:bg-white/10">
                         <i class="fas fa-link opacity-50"></i> Copiar URL
                     </button>
                 </div>
             </div>
             <div class="flex-1 w-full max-w-sm">
                 <div class="glass-card accent-border bg-blue-600/5">
-                    <h3 class="text-blue-400 font-bold text-xs uppercase mb-3">Dominio de Respaldo</h3>
-                    <p class="text-[11px] text-slate-400 mb-4">Arquitectura de resiliencia total sincronizada al 100%.</p>
-                    <a href="https://globalilimited.k.vu/" target="_blank" class="block p-3 bg-black/40 rounded-xl border border-white/5 font-mono text-[11px] text-slate-300">
+                    <h3 class="text-blue-400 font-bold text-xs uppercase mb-3 text-center md:text-left">Dominio de Respaldo</h3>
+                    <p class="text-[11px] text-slate-400 mb-4 text-center md:text-left">Arquitectura de resiliencia total sincronizada al 100%.</p>
+                    <a href="https://globalilimited.k.vu/" target="_blank" class="block p-3 bg-black/40 rounded-xl border border-white/5 font-mono text-[11px] text-slate-300 transition-all hover:border-orange-500/30">
                         globalilimited.k.vu <i class="fas fa-chevron-right ml-2"></i>
                     </a>
                 </div>
@@ -259,7 +258,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <span class="text-lg font-bold text-white uppercase text-xs">Activa</span>
-                        <i class="fas fa-shield-check text-green-500 text-xs"></i>
+                        <i class="fas fa-check-circle text-green-500 text-xs"></i>
                     </div>
                 </div>
             </div>
@@ -322,13 +321,13 @@
             </section>
         </div>
 
-        <!-- Galería de Interfaz -->
+        <!-- Galería de Interfaz (ACTUALIZADA CON NUEVOS ENLACES) -->
         <section class="space-y-6">
             <h3 class="text-xl font-bold px-2">Vistas del Ecosistema</h3>
             <div class="flex gap-6 overflow-x-auto no-scrollbar pb-4 px-2">
-                <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-14-41-60_e4424258c8b8649f6e67d283a50a2cbc.jpg" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 1">
-                <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-18-25-18_e4424258c8b8649f6e67d283a50a2cbc.jpg" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 2">
-                <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-20-34-32_e4424258c8b8649f6e67d283a50a2cbc.jpg" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 3">
+                <img src="https://ilimited.one/v/kDGKfN" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 1">
+                <img src="https://ilimited.one/v/3JwWsi" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 2">
+                <img src="https://ilimited.one/v/29EHGf" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 3">
             </div>
         </section>
 
@@ -362,7 +361,7 @@
         <!-- Seguridad y Video -->
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="glass-card">
-                <h3 class="text-lg font-bold mb-4 text-red-500">Protocolo de Seguridad</h3>
+                <h3 class="text-lg font-bold mb-4 text-red-500 text-center md:text-left">Protocolo de Seguridad</h3>
                 <ul class="text-xs text-slate-400 space-y-4">
                     <li class="flex gap-3"><i class="fas fa-user-shield text-lg opacity-30"></i> Sube archivos privados en ZIP o RAR con contraseña para máxima privacidad.</li>
                     <li class="flex gap-3"><i class="fas fa-ban text-lg opacity-30 text-red-500"></i> Prohibido el malware: enlaces infectados serán eliminados sin previo aviso.</li>
@@ -378,32 +377,32 @@
         <div id="comunidad" class="glass-card text-center py-12 bg-gradient-to-b from-blue-600/5 to-transparent">
             <h2 class="text-3xl font-bold mb-4">KodxSocial</h2>
             <p class="text-slate-400 mb-8 max-w-md mx-auto">Nuestro foro oficial y perfiles en redes sociales para conectar con la red.</p>
-            <a href="https://kodxsocial.k.vu/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-2xl inline-block mb-12 shadow-xl shadow-blue-600/20">
+            <a href="https://kodxsocial.k.vu/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-2xl inline-block mb-12 shadow-xl shadow-blue-600/20 transition-all hover:scale-105 active:scale-95">
                 VISITAR FORO OFICIAL
             </a>
 
             <div class="social-grid max-w-6xl mx-auto px-2">
-                <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all">
                     <i class="fab fa-whatsapp text-2xl text-green-500 mb-3"></i>
                     <p class="text-[10px] font-bold uppercase tracking-widest">WhatsApp</p>
                 </a>
-                <a href="https://t.me/cloudilimited" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                <a href="https://t.me/cloudilimited" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all">
                     <i class="fab fa-telegram text-2xl text-sky-500 mb-3"></i>
                     <p class="text-[10px] font-bold uppercase tracking-widest">Telegram</p>
                 </a>
-                <a href="https://mast.lat/@tntprojects" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                <a href="https://mast.lat/@tntprojects" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all">
                     <i class="fab fa-mastodon text-2xl text-purple-500 mb-3"></i>
                     <p class="text-[10px] font-bold uppercase tracking-widest">Mastodon</p>
                 </a>
-                <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all">
                     <i class="fab fa-youtube text-2xl text-red-500 mb-3"></i>
                     <p class="text-[10px] font-bold uppercase tracking-widest">YouTube</p>
                 </a>
-                <a href="https://www.facebook.com/share/18Q67geZDX/" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                <a href="https://www.facebook.com/share/18Q67geZDX/" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all">
                     <i class="fab fa-facebook text-2xl text-blue-600 mb-3"></i>
                     <p class="text-[10px] font-bold uppercase tracking-widest">Facebook</p>
                 </a>
-                <button onclick="shareVercel()" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                <button onclick="shareVercel()" class="p-5 glass-card hover:bg-white/5 transition-all">
                     <i class="fas fa-share-alt text-2xl text-blue-400 mb-3"></i>
                     <p class="text-[10px] font-bold uppercase tracking-widest">Difundir</p>
                 </button>
@@ -425,20 +424,15 @@
     <script>
         const TARGET_URL = "https://cloud.ilimited.workers.dev/";
 
-        // Función para actualizar estadísticas dinámicamente
         function updateLiveStats() {
-            // Uptime oscila muy poco entre 99.95 y 99.99
             const uptime = (99.95 + (Math.random() * 0.04)).toFixed(2);
-            // Latencia oscila entre 18 y 45ms
             const latency = Math.floor(18 + (Math.random() * 27));
-            // CPU oscila entre 4% y 18%
             const cpuLoad = Math.floor(4 + (Math.random() * 14));
 
             const uptimeEl = document.getElementById('stat-uptime');
             const latencyEl = document.getElementById('stat-latency');
             const cpuEl = document.getElementById('stat-load');
 
-            // Pequeño efecto visual de cambio
             uptimeEl.style.opacity = 0.7;
             latencyEl.style.opacity = 0.7;
             cpuEl.style.opacity = 0.7;
@@ -454,7 +448,6 @@
             }, 300);
         }
 
-        // Iniciar ciclo de actualización cada 4 segundos
         window.onload = function() {
             updateLiveStats();
             setInterval(updateLiveStats, 4000);
@@ -473,7 +466,6 @@
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
-            
             const btn = event.currentTarget;
             const originalHTML = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-check text-green-500"></i> ¡Copiado!';
