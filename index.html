@@ -164,8 +164,38 @@
             }
         }
 
-        .stat-value {
-            transition: all 0.5s ease-out;
+        /* Tabla Comparativa Styles */
+        .comparison-container {
+            overflow-x: auto;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .comparison-table {
+            width: 100%;
+            min-width: 800px;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .comparison-table th {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 16px;
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #94a3b8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .comparison-table td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            font-size: 14px;
+        }
+        .row-highlight {
+            background: rgba(59, 130, 246, 0.08);
+        }
+        .row-highlight td {
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            font-weight: 700;
         }
     </style>
 </head>
@@ -182,9 +212,9 @@
             </div>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
                 <a href="#infraestructura" class="hover:text-white transition-colors">Infraestructura</a>
+                <a href="#comparativa" class="hover:text-white transition-colors">Comparativa</a>
                 <a href="#novedades" class="hover:text-white transition-colors">Novedades</a>
                 <a href="#asociados" class="hover:text-white transition-colors">Asociados</a>
-                <a href="#comunidad" class="hover:text-white transition-colors">Comunidad</a>
             </div>
             <div class="flex items-center gap-4">
                 <div class="hidden sm:flex status-pill">
@@ -276,6 +306,105 @@
                         <i class="fas fa-check-circle text-green-500 text-[10px]"></i>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: TABLA COMPARATIVA -->
+        <section id="comparativa" class="space-y-6">
+            <div class="px-2">
+                <h3 class="text-2xl font-bold mb-2">¿Por qué ILIMITED?</h3>
+                <p class="text-slate-400 text-sm">Compara nuestra potencia frente a los servicios tradicionales.</p>
+            </div>
+            
+            <div class="comparison-container no-scrollbar bg-slate-900/20">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Servicio Cloud</th>
+                            <th>Espacio Gratuito</th>
+                            <th>Límite de Archivo</th>
+                            <th>Vencimiento</th>
+                            <th>Restricciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row-highlight">
+                            <td class="text-blue-400 flex items-center gap-2">
+                                <i class="fas fa-infinity"></i> ILIMITED
+                            </td>
+                            <td>ILIMITADO</td>
+                            <td>Hasta 5 GB</td>
+                            <td>NUNCA</td>
+                            <td class="text-green-400 text-xs">Ninguna / Alta Velocidad</td>
+                        </tr>
+                        <tr>
+                            <td>Google Drive</td>
+                            <td>15 GB (Compartido)</td>
+                            <td>Variable</td>
+                            <td>Activo</td>
+                            <td class="text-slate-500 text-xs">Límite de descarga diaria</td>
+                        </tr>
+                        <tr>
+                            <td>MEGA</td>
+                            <td>20 GB</td>
+                            <td>Limitado</td>
+                            <td>Activo</td>
+                            <td class="text-slate-500 text-xs">Cuota de transferencia IP</td>
+                        </tr>
+                        <tr>
+                            <td>Terabox</td>
+                            <td>1024 GB</td>
+                            <td>4 GB</td>
+                            <td>Activo</td>
+                            <td class="text-slate-500 text-xs">Exceso de publicidad / Lento</td>
+                        </tr>
+                        <tr>
+                            <td>Mediafire</td>
+                            <td>10 GB</td>
+                            <td>Limitado</td>
+                            <td>Inactividad</td>
+                            <td class="text-slate-500 text-xs">Borran por copyright agresivo</td>
+                        </tr>
+                        <tr>
+                            <td>Pixeldrain</td>
+                            <td>5 GB (Temporal)</td>
+                            <td>10 GB</td>
+                            <td>60 Días</td>
+                            <td class="text-slate-500 text-xs">Borran si no hay visitas</td>
+                        </tr>
+                        <tr>
+                            <td>Dropbox</td>
+                            <td>2 GB</td>
+                            <td>Ilimitado</td>
+                            <td>Activo</td>
+                            <td class="text-slate-500 text-xs">Espacio extremadamente bajo</td>
+                        </tr>
+                        <tr>
+                            <td>OneDrive</td>
+                            <td>5 GB</td>
+                            <td>Limitado</td>
+                            <td>Activo</td>
+                            <td class="text-slate-500 text-xs">Sincronización invasiva</td>
+                        </tr>
+                        <tr>
+                            <td>pCloud</td>
+                            <td>10 GB</td>
+                            <td>Ilimitado</td>
+                            <td>Activo</td>
+                            <td class="text-slate-500 text-xs">Velocidad capada en free</td>
+                        </tr>
+                        <tr>
+                            <td>Yandex Disk</td>
+                            <td>10 GB</td>
+                            <td>Limitado</td>
+                            <td>Activo</td>
+                            <td class="text-slate-500 text-xs">Bloqueado en ciertas regiones</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="md:hidden text-center text-[10px] text-slate-500 animate-pulse">
+                <i class="fas fa-arrows-alt-h mr-1"></i> Desliza para ver la tabla completa
             </div>
         </section>
 
