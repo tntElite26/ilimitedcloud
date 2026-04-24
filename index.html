@@ -3,657 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ILIMITED | Almacenamiento Ilimitado Gratuito</title>
+    <title>ILIMITED | Enterprise Cloud</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap');
         
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f1f5f9;
-            margin: 0;
-            padding: 0;
+            font-family: 'Lexend', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        .main-header {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 24px;
+            height: 100%;
         }
 
-        .hero-gradient {
-            background: radial-gradient(circle at top, #1e40af 0%, #0f172a 70%);
-        }
-
-        .update-gradient {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .infra-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-secondary {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .btn-global {
-            background: rgba(249, 115, 22, 0.1);
-            border: 1px solid rgba(249, 115, 22, 0.4);
-            color: #fb923c;
-            transition: all 0.2s ease;
-        }
-
-        .btn-global:hover {
-            background: rgba(249, 115, 22, 0.2);
-            box-shadow: 0 0 15px rgba(249, 115, 22, 0.2);
-        }
-
-        .btn-social {
-            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
-            transition: transform 0.2s;
-        }
-
-        .btn-share-main {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .partner-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             transition: all 0.3s ease;
         }
 
-        .btn-share-main:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
+        .partner-card:hover {
+            background: rgba(59, 130, 246, 0.05);
+            border-color: rgba(59, 130, 246, 0.3);
         }
 
-        /* Anuncio superior animado */
-        .announcement-bar {
-            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #1e3a8a 100%);
-            background-size: 200% auto;
-            animation: gradient-flow 5s linear infinite;
+        .accent-border {
+            border-left: 4px solid #3b82f6;
         }
 
-        @keyframes gradient-flow {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-
-        /* Galería Táctil */
-        .carousel-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 1.5rem;
-            padding: 1rem 0.5rem 2rem 0.5rem;
-        }
-
-        .carousel-item {
-            scroll-snap-align: center;
-            flex-shrink: 0;
-            width: 260px;
-            cursor: pointer;
-        }
-
-        .screenshot-wrapper {
+        .video-wrapper {
             position: relative;
-            border-radius: 2rem;
+            padding-bottom: 56.25%;
+            height: 0;
             overflow: hidden;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            background: #1e293b;
-            aspect-ratio: 9/19;
+            border-radius: 16px;
+            background: #000;
         }
 
-        .screenshot-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .zoom-overlay {
+        .video-wrapper iframe {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
-            display: flex;
-            align-items: flex-end;
-            padding: 1.25rem;
+            top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        /* Lightbox */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        .img-gallery-item {
+            width: 260px;
+            height: 460px;
+            flex-shrink: 0;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .img-gallery-item:hover { transform: scale(1.02); }
+
         #lightbox {
             display: none;
             position: fixed;
             inset: 0;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(15px);
+            background: rgba(0,0,0,0.95);
             align-items: center;
             justify-content: center;
-            padding: 1rem;
-        }
-
-        #lightbox-img {
-            max-height: 90vh;
-            max-width: 95vw;
-            border-radius: 1rem;
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
-        }
-
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 1.5rem;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%; border: 0;
-        }
-
-        .touch-target { min-height: 48px; }
-        
-        .share-toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #3b82f6;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 99px;
-            z-index: 2000;
-            display: none;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .id-highlight {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-weight: bold;
+            padding: 20px;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col overflow-x-hidden text-slate-200">
+<body class="pt-20">
 
-    <!-- BARRA DE ANUNCIO SUPERIOR -->
-    <div class="announcement-bar w-full py-2.5 px-4 text-center text-white text-xs md:text-sm font-bold shadow-lg z-50">
-        <i class="fas fa-info-circle mr-2"></i> ¡Hemos cambiado nuestro dominio por uno de pago! :)
-    </div>
-
-    <!-- Toast para notificaciones -->
-    <div id="share-toast" class="share-toast">¡Enlace copiado al portapapeles!</div>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" onclick="closeLightbox()">
-        <button class="absolute top-6 right-6 text-white text-5xl z-50">&times;</button>
-        <img id="lightbox-img" src="" alt="Vista previa">
-    </div>
-
-    <!-- SECCIÓN COMPARTIR CABECERA -->
-    <div class="w-full bg-slate-900/50 backdrop-blur-md border-b border-white/5 py-3 px-6 z-40">
-        <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-4">
-            <div class="flex items-center text-xs font-bold text-blue-400 uppercase tracking-widest">
-                <i class="fas fa-bullhorn mr-2"></i> Difundir Web
+    <!-- CABECERA SUPERIOR FIJA -->
+    <header class="fixed top-0 left-0 right-0 z-50 main-header">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-cloud text-white"></i>
+                </div>
+                <span class="font-bold text-xl tracking-tight">ILIMITED</span>
             </div>
-            <div class="flex items-center gap-2">
-                <span class="hidden sm:inline text-xs text-slate-400 mr-2">Compartir ilimited.vercel.app:</span>
-                <button onclick="shareVercel()" class="btn-share-main flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold text-white touch-target">
-                    <i class="fas fa-share-alt"></i> <span class="hidden xs:inline">Compartir</span>
-                </button>
-                <a href="https://api.whatsapp.com/send?text=¡Prueba la nueva nube ilimitada gratuita! Entra aquí: https://ilimited.vercel.app" target="_blank" class="w-8 h-8 rounded-lg bg-green-600/20 hover:bg-green-600/40 text-green-400 flex items-center justify-center transition-all touch-target">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ilimited.vercel.app" target="_blank" class="w-8 h-8 rounded-lg bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 flex items-center justify-center transition-all touch-target">
-                    <i class="fab fa-facebook-f text-xs"></i>
-                </a>
-                <button onclick="copyVercel()" class="w-8 h-8 rounded-lg bg-slate-700/50 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition-all touch-target">
-                    <i class="fas fa-link text-xs"></i>
-                </button>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
+                <a href="#infraestructura" class="hover:text-white transition-colors">Infraestructura</a>
+                <a href="#novedades" class="hover:text-white transition-colors">Novedades</a>
+                <a href="#asociados" class="hover:text-white transition-colors">Asociados</a>
+                <a href="#comunidad" class="hover:text-white transition-colors">Comunidad</a>
             </div>
-        </div>
-    </div>
-
-    <!-- CABECERA (HERO) -->
-    <header class="hero-gradient pt-8 pb-16 px-6 text-center">
-        <div class="max-w-4xl mx-auto">
-            <div class="mb-6 inline-block p-3 rounded-2xl bg-blue-600/20 border border-blue-500/30">
-                <i class="fas fa-cloud-upload-alt text-4xl text-blue-400"></i>
-            </div>
-            <h1 class="text-4xl md:text-6xl font-800 tracking-tight mb-4 text-white">ILIMITED</h1>
-            <p class="text-xl md:text-2xl text-blue-200 font-light mb-10">La nube ilimitada gratuita definitiva</p>
-            
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="https://ilimited.one" target="_blank" class="w-full sm:w-auto btn-primary inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-bold shadow-lg shadow-blue-500/20 text-white touch-target">
-                    Ir al Nuevo Dominio <i class="fas fa-external-link-alt ml-2 text-sm"></i>
-                </a>
-                <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="w-full sm:w-auto btn-secondary inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-bold text-green-400 touch-target">
-                    <i class="fab fa-whatsapp mr-2 text-xl"></i> Soporte Usuarios
-                </a>
-            </div>
-
-            <div class="mt-10 flex items-center justify-center space-x-2 text-sm text-slate-400">
-                <i class="fas fa-info-circle text-blue-400"></i>
-                <span>Límite de subida por archivo: <strong class="text-white">5GB</strong></span>
-            </div>
+            <a href="https://ilimited.one" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-2.5 rounded-full transition-all">
+                ABRIR NUBE
+            </a>
         </div>
     </header>
 
-    <main class="flex-grow px-6 -mt-8 pb-12">
-        <div class="max-w-4xl mx-auto space-y-10">
-            
-            <!-- SECCIÓN: MENSAJE PROFESIONAL DE INFRAESTRUCTURA -->
-            <section class="infra-gradient p-8 rounded-3xl shadow-2xl relative overflow-hidden group border-blue-500/30">
-                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-all duration-700"></div>
-                <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                    <div class="flex-shrink-0">
-                        <div class="w-20 h-20 bg-blue-600/20 rounded-2xl flex items-center justify-center border border-blue-500/40 shadow-inner">
-                            <i class="fas fa-microchip text-4xl text-blue-400"></i>
-                        </div>
-                    </div>
-                    <div class="text-center md:text-left">
-                        <h2 class="text-xl md:text-2xl font-bold text-white mb-3">Tecnología de Clase Mundial</h2>
-                        <p class="text-slate-300 leading-relaxed">
-                            A diferencia de otros servicios, <span class="text-blue-400 font-bold">no dependemos de cPanel ni hostings compartidos</span> de terceros. 
-                            Hemos diseñado nuestra propia arquitectura utilizando la <span class="text-white font-semibold">misma infraestructura escalable de las nubes gigantes</span> para garantizar que tus datos siempre estén disponibles y seguros.
-                        </p>
-                        <div class="mt-4 flex flex-wrap justify-center md:justify-start gap-4">
-                            <span class="flex items-center text-xs text-blue-300 bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20">
-                                <i class="fas fa-check-double mr-2"></i> Sin cuotas de hosting
-                            </span>
-                            <span class="flex items-center text-xs text-blue-300 bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20">
-                                <i class="fas fa-bolt mr-2"></i> Latencia mínima
-                            </span>
-                        </div>
-                    </div>
+    <main class="max-w-6xl mx-auto px-6 space-y-12 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="py-12 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 space-y-6">
+                <div class="inline-block px-3 py-1 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest">
+                    Tecnología Propia 2026
                 </div>
-            </section>
-            
-            <!-- SECCIÓN: ENLACES DE RESPALDO Y ACLARACIÓN DE COMPATIBILIDAD -->
-            <section class="glass-card p-0 rounded-3xl border-orange-500/20 bg-orange-500/5 shadow-xl overflow-hidden">
-                <div class="p-6 md:p-8">
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
-                        <div class="text-center md:text-left">
-                            <h2 class="text-lg font-bold text-orange-400 flex items-center justify-center md:justify-start">
-                                <i class="fas fa-globe mr-2"></i> Acceso Alternativo
-                            </h2>
-                            <p class="text-sm text-slate-400 mt-1">Si tienes problemas con el enlace principal, puedes ingresar desde el enlace global:</p>
-                        </div>
-                        <a href="https://globalilimited.k.vu/" target="_blank" class="btn-global px-6 py-3 rounded-2xl font-bold text-sm flex items-center gap-2 hover:scale-105 active:scale-95 touch-target">
-                            Ingresar vía Enlace Global <i class="fas fa-chevron-right text-xs"></i>
-                        </a>
-                    </div>
-                    
-                    <div class="bg-black/20 p-4 rounded-2xl border border-white/5">
-                        <h3 class="text-sm font-bold text-white mb-2 flex items-center">
-                            <i class="fas fa-sync-alt text-blue-400 mr-2"></i> Compatibilidad Total de Enlaces
-                        </h3>
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            Ambos dominios están sincronizados al 100%. Esto significa que cualquier archivo que subas genera un <span class="id-highlight">ID de Enlace</span> universal. Si copias lo que está después de <span class="text-blue-400">/s/</span>, funcionará en ambos sitios:
-                        </p>
-                        <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-2 text-[10px] md:text-xs font-mono">
-                            <div class="p-2 bg-slate-900/80 rounded border border-blue-500/20 text-blue-200">
-                                ilimited.one/s/<span class="text-white font-bold">TU_ARCHIVO_ID</span>
-                            </div>
-                            <div class="p-2 bg-slate-900/80 rounded border border-orange-500/20 text-orange-200">
-                                globalilimited.k.vu/s/<span class="text-white font-bold">TU_ARCHIVO_ID</span>
-                            </div>
-                        </div>
-                        <p class="mt-3 text-[10px] text-slate-500 italic">
-                            *No importa el dominio que uses, tus archivos estarán siempre accesibles.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- GALERÍA DE IMÁGENES -->
-            <section>
-                <div class="flex items-center justify-between mb-4 px-2">
-                    <h2 class="text-2xl font-bold flex items-center">
-                        <i class="fas fa-images text-blue-400 mr-3"></i> Galería del Sistema
-                    </h2>
-                    <span class="text-xs text-slate-500 bg-slate-800/50 px-3 py-1 rounded-full">Toca para ampliar</span>
-                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">Tu espacio <br><span class="text-blue-500">Sin Límites.</span></h1>
+                <p class="text-slate-400 text-lg max-w-xl">Almacenamiento infinito y gratuito. Subidas de hasta 5GB sin restricciones de hosting tradicional.</p>
                 
-                <div class="carousel-container no-scrollbar">
-                    <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-14-41-60_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
-                        <div class="screenshot-wrapper">
-                            <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-14-41-60_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Subida">
-                            <div class="zoom-overlay">
-                                <p class="text-xs font-semibold text-white">Sube archivos grandes de hasta 5GB y comparte.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-18-25-18_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
-                        <div class="screenshot-wrapper">
-                            <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-18-25-18_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Descarga">
-                            <div class="zoom-overlay">
-                                <p class="text-xs font-semibold text-white">Comparte o descarga archivos de otros usuarios.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-20-34-32_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
-                        <div class="screenshot-wrapper">
-                            <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-20-34-32_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Previsualización">
-                            <div class="zoom-overlay">
-                                <p class="text-xs font-semibold text-white">Previsualiza contenido: mp4, JPG, PNG, PDF, txt...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-22-34-33_e4424258c8b8649f6e67d283a50a2cbc.jpg')">
-                        <div class="screenshot-wrapper">
-                            <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-22-34-33_e4424258c8b8649f6e67d283a50a2cbc.jpg" class="screenshot-img" alt="Embed">
-                            <div class="zoom-overlay">
-                                <p class="text-xs font-semibold text-white">Visualiza contenido en embed como mp4, MP3 o imágenes.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" onclick="openLightbox('https://github.com/tntElite26/tntProjects/releases/download/Unlim2/IMG-20260418-WA0014.jpg')">
-                        <div class="screenshot-wrapper border-red-500/50">
-                            <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/IMG-20260418-WA0014.jpg" class="screenshot-img" alt="Seguridad">
-                            <div class="zoom-overlay bg-red-900/40">
-                                <p class="text-xs font-bold text-red-200 italic">¡Si tu archivo tiene malware será suspendido el enlace!</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="bg-slate-800 text-white font-bold py-4 px-8 rounded-2xl flex items-center gap-3 border border-white/5">
+                        <i class="fab fa-whatsapp text-green-500 text-xl"></i> Soporte Oficial
+                    </a>
+                    <button onclick="copyVercel()" class="bg-white/5 text-white font-bold py-4 px-6 rounded-2xl flex items-center gap-3 border border-white/5">
+                        <i class="fas fa-link opacity-50"></i> Copiar URL
+                    </button>
                 </div>
-            </section>
-
-            <!-- SECCIÓN: NOVEDADES (ACTUALIZACIÓN 2026) -->
-            <section class="update-gradient p-8 rounded-3xl shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4">
-                    <span class="bg-blue-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter shadow-lg shadow-blue-500/30 animate-pulse">Nuevo</span>
-                </div>
-                
-                <h2 class="text-2xl font-bold mb-4 flex items-center text-white">
-                    <i class="fas fa-rocket text-blue-400 mr-3"></i> Novedades y Actualizaciones
-                </h2>
-                
-                <div class="space-y-6 text-slate-200 text-sm md:text-base leading-relaxed">
-                    <div class="bg-white/5 p-5 rounded-2xl border border-white/10">
-                        <h3 class="font-bold text-lg text-blue-300 mb-3 flex items-center">
-                            <i class="fas fa-magic mr-2"></i> Evolución de ILIMITED
-                        </h3>
-                        <ul class="space-y-3 list-none">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-400 mt-1 mr-3"></i>
-                                <span><strong>Nuevo Diseño:</strong> Interfaz completamente renovada, más moderna y optimizada para dispositivos móviles.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-user-plus text-blue-400 mt-1 mr-3"></i>
-                                <span><strong>Registro con Google:</strong> Ahora puedes crear tu cuenta de forma instantánea usando tu cuenta de Google.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-columns text-blue-400 mt-1 mr-3"></i>
-                                <span><strong>Panel de Usuario:</strong> Gestiona todos tus archivos desde un panel centralizado. Visualiza el almacenamiento utilizado, copia enlaces rápidamente o elimina archivos que ya no necesites.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-play-circle text-blue-400 mt-1 mr-3"></i>
-                                <span><strong>Embed y Video:</strong> Previsualización de videos integrada y capacidad de copiar el código embed para insertar en tus propias webs.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-heart text-pink-400 mt-1 mr-3"></i>
-                                <span><strong>Donación Voluntaria:</strong> Integración de botón de donaciones para apoyar el mantenimiento de los servidores ilimitados.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-slate-800/40 p-5 rounded-2xl border border-white/5">
-                            <h3 class="font-bold text-white mb-2 flex items-center">
-                                <i class="fas fa-gavel text-yellow-400 mr-2"></i> Legal y Transparencia
-                            </h3>
-                            <div class="flex flex-wrap gap-2 text-[10px]">
-                                <span class="bg-slate-900 px-2 py-1 rounded border border-white/10">Términos de Uso</span>
-                                <span class="bg-slate-900 px-2 py-1 rounded border border-white/10">Privacidad</span>
-                                <span class="bg-slate-900 px-2 py-1 rounded border border-white/10">FAQ Integrado</span>
-                            </div>
-                        </div>
-                        <div class="bg-slate-800/40 p-5 rounded-2xl border border-white/5">
-                            <h3 class="font-bold text-white mb-2 flex items-center">
-                                <i class="fas fa-chart-bar text-blue-400 mr-2"></i> Estadísticas Reales
-                            </h3>
-                            <p class="text-xs text-slate-400">Contador de descargas y visualizaciones en tiempo real para cada uno de tus archivos.</p>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-white/10 pt-6">
-                        <h3 class="font-bold text-white mb-4 flex items-center">
-                            <i class="fas fa-comments text-purple-400 mr-2"></i> Únete a nuestra Comunidad Oficial
-                        </h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="flex items-center p-3 bg-green-500/10 hover:bg-green-500/20 rounded-xl border border-green-500/20 transition-all group">
-                                <i class="fab fa-whatsapp text-2xl text-green-500 mr-3"></i>
-                                <div>
-                                    <p class="text-xs font-bold text-white">Grupo de Soporte</p>
-                                    <p class="text-[10px] text-slate-400">Ayuda técnica inmediata</p>
-                                </div>
-                            </a>
-                            <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="flex items-center p-3 bg-blue-500/10 hover:bg-blue-500/20 rounded-xl border border-blue-500/20 transition-all group">
-                                <i class="fas fa-bullhorn text-xl text-blue-400 mr-3"></i>
-                                <div>
-                                    <p class="text-xs font-bold text-white">Canal de Novedades</p>
-                                    <p class="text-[10px] text-slate-400">Avisos y mejoras primero</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="bg-amber-500/5 p-4 rounded-xl border border-amber-500/10 text-center">
-                        <p class="text-xs text-amber-200/70 italic">
-                            💡 <strong>Tip:</strong> Todo tu contenido se sincroniza automáticamente entre dominios.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECCIÓN: FORO OFICIAL -->
-            <section class="glass-card p-8 rounded-3xl border border-purple-500/30 bg-purple-600/5 shadow-2xl overflow-hidden relative">
-                <div class="absolute -right-10 -top-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
-                <div class="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
-                    <div class="flex-1 text-center md:text-left">
-                        <h2 class="text-2xl font-bold mb-3 text-purple-300">
-                            <i class="fas fa-users mr-3"></i> Únete a KodxSocial
-                        </h2>
-                        <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-                            Forma parte de nuestro <strong>foro oficial</strong>. Un espacio para compartir, debatir y estar al día con todas las novedades de KodxStudios y la comunidad ILIMITED.
-                        </p>
-                    </div>
-                    <a href="https://kodxsocial.k.vu/" target="_blank" class="w-full md:w-auto btn-social hover:scale-105 active:scale-95 text-white font-800 py-4 px-10 rounded-2xl flex items-center justify-center transition-all shadow-xl shadow-purple-900/20 touch-target">
-                        Ir al Foro Oficial <i class="fas fa-chevron-right ml-3 text-sm"></i>
+            </div>
+            <div class="flex-1 w-full max-w-sm">
+                <div class="glass-card accent-border bg-blue-600/5">
+                    <h3 class="text-blue-400 font-bold text-xs uppercase mb-3">Dominio de Respaldo</h3>
+                    <p class="text-[11px] text-slate-400 mb-4">Arquitectura de resiliencia total sincronizada al 100%.</p>
+                    <a href="https://globalilimited.k.vu/" target="_blank" class="block p-3 bg-black/40 rounded-xl border border-white/5 font-mono text-[11px] text-slate-300">
+                        globalilimited.k.vu <i class="fas fa-chevron-right ml-2"></i>
                     </a>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- SOBRE NOSOTROS -->
-            <section class="glass-card p-8 rounded-3xl shadow-xl">
-                <h2 class="text-2xl font-bold mb-4 flex items-center text-white">
-                    <i class="fas fa-align-left text-blue-400 mr-3"></i> Sobre Nosotros
+        <!-- SECCIÓN DE ASOCIADOS (Nueva) -->
+        <section id="asociados" class="space-y-6">
+            <h3 class="text-xl font-bold px-2 flex items-center gap-2">
+                <i class="fas fa-handshake text-blue-500"></i> Alianzas & Ecosistema
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-2">
+                <div class="partner-card">
+                    <i class="fab fa-cloudflare text-orange-500 text-2xl"></i>
+                    <div>
+                        <p class="text-[10px] text-slate-500 uppercase font-bold">Seguridad & Red</p>
+                        <p class="text-xs font-semibold">cloudflare.com</p>
+                    </div>
+                </div>
+                <div class="partner-card">
+                    <i class="fas fa-shopping-cart text-blue-400 text-2xl"></i>
+                    <div>
+                        <p class="text-[10px] text-slate-500 uppercase font-bold">E-Commerce</p>
+                        <p class="text-xs font-semibold">shopplink.site</p>
+                    </div>
+                </div>
+                <div class="partner-card">
+                    <i class="fas fa-play-circle text-red-500 text-2xl"></i>
+                    <div>
+                        <p class="text-[10px] text-slate-500 uppercase font-bold">Video Decentralizado</p>
+                        <p class="text-xs font-semibold">d.tube</p>
+                    </div>
+                </div>
+                <div class="partner-card">
+                    <i class="fab fa-mastodon text-purple-500 text-2xl"></i>
+                    <div>
+                        <p class="text-[10px] text-slate-500 uppercase font-bold">Red Social Federada</p>
+                        <p class="text-xs font-semibold">Mastodon</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Infraestructura y Sobre Nosotros -->
+        <div id="infraestructura" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <section class="glass-card">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-3">
+                    <i class="fas fa-info-circle text-blue-500"></i> Sobre Nosotros
                 </h2>
-                <p class="text-slate-300 leading-relaxed">
-                    ILIMITED es la solución definitiva para quienes buscan libertad de almacenamiento. Sin cuotas mensuales ni suscripciones ocultas, ofrecemos un espacio infinito para tus archivos, fotos y documentos, permitiendo subir archivos individuales de hasta 5GB de forma totalmente gratuita.
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    ILIMITED es la solución definitiva para quienes buscan libertad de almacenamiento. Sin cuotas mensuales ni suscripciones ocultas, ofrecemos un espacio infinito para tus archivos, fotos y documentos. Nuestra misión es democratizar el acceso a la nube con potencia real.
                 </p>
             </section>
-
-            <!-- CARACTERÍSTICAS -->
-            <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="glass-card p-6 rounded-3xl text-white">
-                    <i class="fas fa-infinity text-blue-400 text-3xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Espacio Infinito</h3>
-                    <p class="text-slate-400 text-sm">Guarda todo lo que necesites sin preocuparte por el contador de gigabytes usados.</p>
-                </div>
-                <div class="glass-card p-6 rounded-3xl text-white">
-                    <i class="fas fa-bolt text-blue-400 text-3xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Alta Velocidad</h3>
-                    <p class="text-slate-400 text-sm">Optimizado para que tus cargas y descargas sean lo más rápidas posible.</p>
-                </div>
-            </section>
-
-            <!-- INFRAESTRUCTURA -->
-            <section class="glass-card p-8 rounded-3xl border-l-4 border-blue-500">
-                <h2 class="text-2xl font-bold mb-4 flex items-center text-white">
-                    <i class="fas fa-server text-blue-400 mr-3"></i> Infraestructura y Resiliencia
+            <section class="glass-card">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-3">
+                    <i class="fas fa-server text-blue-500"></i> Nuestra Infraestructura
                 </h2>
-                <div class="space-y-4 text-slate-300 leading-relaxed text-sm">
-                    <p>Garantizamos la máxima disponibilidad de sus datos mediante el uso de <strong>servidores de alta velocidad de última generación</strong>.</p>
-                    <p>Contamos con una arquitectura de almacenamiento redundante: si hubiera una caída, <strong>sus archivos permanecen seguros en servidores independientes</strong>.</p>
-                    <p>Ante cualquier incidencia, la restauración es inmediata. <strong>Ningún archivo se pierde</strong>, solo se restaura la interfaz y todo continúa con normalidad.</p>
-                </div>
-            </section>
-
-            <!-- INTEGRACIÓN IFRAME -->
-            <section class="glass-card p-8 rounded-3xl border-l-4 border-purple-500">
-                <h2 class="text-2xl font-bold mb-4 flex items-center text-white">
-                    <i class="fas fa-code text-purple-400 mr-3"></i> Integración Web (iFrame)
-                </h2>
-                <div class="space-y-4 text-slate-300 leading-relaxed text-sm">
-                    <p>ILIMITED permite la integración directa de contenido mediante etiquetas <strong>iFrame</strong>. El formato estándar es:</p>
-                    <div class="bg-black/40 p-3 rounded-xl text-center border border-white/5 font-mono text-blue-300">
-                        https://ilimited.one/<strong>s</strong>/[ID]
-                    </div>
-                    <p>Para usarlo como <strong>visualizador directo (Viewer)</strong>, cambie la <code>s</code> por una <code>v</code>:</p>
-                    <div class="bg-black/40 p-3 rounded-xl text-center border border-white/5 font-mono text-purple-300">
-                        https://ilimited.one/<strong>v</strong>/[ID]
-                    </div>
-                </div>
-            </section>
-
-            <!-- VIDEO TUTORIAL -->
-            <section class="glass-card p-4 md:p-6 rounded-3xl shadow-xl">
-                <h2 class="text-xl font-bold mb-4 px-2 flex items-center text-white">
-                    <i class="fab fa-youtube text-red-500 mr-3"></i> Tutorial y Presentación
-                </h2>
-                <div class="video-container shadow-2xl">
-                    <iframe src="https://www.youtube.com/embed/CwK4SkF4B_E" title="Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-            </section>
-
-            <!-- SOPORTE -->
-            <section class="glass-card p-8 rounded-3xl border border-green-500/30 bg-green-500/5">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="flex-1 text-center md:text-left text-white">
-                        <h2 class="text-2xl font-bold mb-2 text-green-400">
-                            <i class="fas fa-headset mr-3"></i> Soporte al Usuario
-                        </h2>
-                        <p class="text-slate-300 text-sm md:text-base leading-relaxed">¿Dudas o soporte técnico? Únete al grupo oficial para asistencia personalizada y novedades.</p>
-                    </div>
-                    <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-6 rounded-2xl flex items-center justify-center transition-all shadow-lg shadow-green-900/20 touch-target">
-                        <i class="fab fa-whatsapp text-xl mr-2"></i> Unirse al Grupo
-                    </a>
-                </div>
-            </section>
-
-            <!-- SEGURIDAD -->
-            <section class="bg-amber-500/10 border border-amber-500/20 p-8 rounded-3xl">
-                <h2 class="text-2xl font-bold mb-6 text-amber-400 flex items-center">
-                    <i class="fas fa-shield-alt mr-3"></i> Recomendaciones de Seguridad
-                </h2>
-                <div class="space-y-4">
-                    <div class="flex items-start">
-                        <i class="fas fa-sticky-note mt-1 mr-4 text-amber-500"></i>
-                        <p class="text-slate-200 text-sm leading-relaxed text-white">Se recomienda <strong>guardar tus enlaces en un bloc de notas</strong> para no perder acceso a tus archivos.</p>
-                    </div>
-                    <div class="flex items-start">
-                        <i class="fas fa-lock mt-1 mr-4 text-amber-500"></i>
-                        <p class="text-slate-200 text-sm leading-relaxed text-white">Para archivos privados, subirlos dentro de un <strong>archivo comprimido (ZIP o RAR) con contraseña</strong>.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- REDES SOCIALES -->
-            <section class="pb-12 text-white">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <a href="https://www.facebook.com/share/18Q67geZDX/" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-blue-600/10 transition-colors touch-target">
-                        <i class="fab fa-facebook text-2xl text-blue-500 mb-2"></i>
-                        <span class="text-xs font-semibold">Facebook</span>
-                    </a>
-                    <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-red-600/10 transition-colors touch-target">
-                        <i class="fab fa-youtube text-2xl text-red-500 mb-2"></i>
-                        <span class="text-xs font-semibold">YouTube</span>
-                    </a>
-                    <a href="https://www.instagram.com/bryancortesz4k?igsh=b2IwMTcwN3kyb21p" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-pink-600/10 transition-colors touch-target">
-                        <i class="fab fa-instagram text-2xl text-pink-500 mb-2"></i>
-                        <span class="text-xs font-semibold">Instagram</span>
-                    </a>
-                    <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="glass-card p-4 rounded-2xl flex flex-col items-center hover:bg-green-600/10 transition-colors touch-target">
-                        <i class="fab fa-whatsapp text-2xl text-green-500 mb-2"></i>
-                        <span class="text-xs font-semibold">Canal WhatsApp</span>
-                    </a>
-                </div>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    Operamos sobre nuestra propia arquitectura escalable. <span class="text-white font-bold">No utilizamos cPanel ni hostings compartidos</span>. Operamos sobre la misma infraestructura de las nubes gigantes, garantizando potencia, estabilidad y una latencia mínima para tus datos.
+                </p>
             </section>
         </div>
+
+        <!-- Galería de Interfaz -->
+        <section class="space-y-6">
+            <h3 class="text-xl font-bold px-2">Vistas del Ecosistema</h3>
+            <div class="flex gap-6 overflow-x-auto no-scrollbar pb-4 px-2">
+                <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-14-41-60_e4424258c8b8649f6e67d283a50a2cbc.jpg" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 1">
+                <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-18-25-18_e4424258c8b8649f6e67d283a50a2cbc.jpg" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 2">
+                <img src="https://github.com/tntElite26/tntProjects/releases/download/Unlim2/Screenshot_2026-04-19-18-20-34-32_e4424258c8b8649f6e67d283a50a2cbc.jpg" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 3">
+            </div>
+        </section>
+
+        <!-- Resiliencia y Novedades -->
+        <div id="novedades" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card md:col-span-2">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <i class="fas fa-rocket text-blue-500"></i> Novedades Evolución v2.0
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Registro con Google instantáneo</li>
+                        <li class="flex gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Panel de Usuario para gestión total</li>
+                    </ul>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Reproductor multimedia avanzado</li>
+                        <li class="flex gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Sistema de Embeds para desarrolladores</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="glass-card bg-blue-900/10">
+                <h3 class="text-lg font-bold mb-3 flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-blue-400"></i> Resiliencia
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Arquitectura redundante: si hubiera una caída, sus archivos permanecen seguros en servidores independientes. La restauración es inmediata sin pérdida de datos.
+                </p>
+            </div>
+        </div>
+
+        <!-- Seguridad y Video -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card">
+                <h3 class="text-lg font-bold mb-4 text-red-500">Protocolo de Seguridad</h3>
+                <ul class="text-xs text-slate-400 space-y-4">
+                    <li class="flex gap-3"><i class="fas fa-user-shield text-lg opacity-30"></i> Sube archivos privados en ZIP o RAR con contraseña para máxima privacidad.</li>
+                    <li class="flex gap-3"><i class="fas fa-ban text-lg opacity-30 text-red-500"></i> Prohibido el malware: enlaces infectados serán eliminados sin previo aviso.</li>
+                    <li class="flex gap-3"><i class="fas fa-save text-lg opacity-30"></i> Guarda tus enlaces en un bloc de notas para no perderlos jamás.</li>
+                </ul>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CwK4SkF4B_E" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Comunidad y Footer -->
+        <div id="comunidad" class="glass-card text-center py-12 bg-gradient-to-b from-blue-600/5 to-transparent">
+            <h2 class="text-3xl font-bold mb-4">KodxSocial</h2>
+            <p class="text-slate-400 mb-8 max-w-md mx-auto">Nuestro foro oficial para compartir contenido y conectar con otros usuarios de la red.</p>
+            <a href="https://kodxsocial.k.vu/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-2xl inline-block mb-12 shadow-xl shadow-blue-600/20">
+                VISITAR FORO OFICIAL
+            </a>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                    <i class="fab fa-whatsapp text-2xl text-green-500 mb-3"></i>
+                    <p class="text-[10px] font-bold uppercase tracking-widest">Novedades</p>
+                </a>
+                <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                    <i class="fab fa-youtube text-2xl text-red-500 mb-3"></i>
+                    <p class="text-[10px] font-bold uppercase tracking-widest">YouTube</p>
+                </a>
+                <a href="https://www.facebook.com/share/18Q67geZDX/" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                    <i class="fab fa-facebook text-2xl text-blue-600 mb-3"></i>
+                    <p class="text-[10px] font-bold uppercase tracking-widest">Facebook</p>
+                </a>
+                <button onclick="shareVercel()" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                    <i class="fas fa-share-alt text-2xl text-blue-400 mb-3"></i>
+                    <p class="text-[10px] font-bold uppercase tracking-widest">Difundir</p>
+                </button>
+            </div>
+        </div>
+
     </main>
 
-    <!-- FOOTER -->
-    <footer class="py-10 border-t border-slate-800 text-center text-slate-500 text-sm bg-[#0a0f1d]">
-        <p>Desarrollado por <span class="text-blue-400 font-semibold">KodxStudios</span></p>
-        <p class="mt-2 text-xs opacity-50">&copy; 2024 ILIMITED. Almacenamiento Seguro.</p>
+    <footer class="py-12 border-t border-white/5 text-center">
+        <p class="text-sm font-semibold text-slate-400">Plataforma gestionada por <span class="text-blue-500">KodxStudios</span></p>
+        <p class="text-[10px] text-slate-600 uppercase tracking-[0.4em] mt-3">© 2026 ILIMITED. Infraestructura de Red Global.</p>
     </footer>
 
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="this.style.display='none'">
+        <img id="lightbox-img" src="" class="max-h-full max-w-full rounded-2xl shadow-2xl">
+    </div>
+
     <script>
-        const VERCEL_URL = 'https://ilimited.vercel.app';
+        const TARGET_URL = "https://cloud.ilimited.workers.dev/";
 
         function openLightbox(src) {
-            const lb = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            lb.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            const lb = document.getElementById('lightbox');
-            lb.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        async function shareVercel() {
-            const shareData = {
-                title: 'ILIMITED - La Nube Ilimitada',
-                text: '¡Prueba la nueva nube ilimitada gratuita definitiva! Sin límites, sin cuotas.',
-                url: VERCEL_URL
-            };
-            if (navigator.share) {
-                try { await navigator.share(shareData); } catch (err) {}
-            } else { copyVercel(); }
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
         }
 
         function copyVercel() {
+            const text = TARGET_URL;
             const el = document.createElement('textarea');
-            el.value = VERCEL_URL;
+            el.value = text;
             document.body.appendChild(el);
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
-            showToast();
+            const btn = event.currentTarget;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check text-green-500"></i> ¡Copiado!';
+            setTimeout(() => { btn.innerHTML = originalText; }, 2000);
         }
 
-        function showToast() {
-            const toast = document.getElementById('share-toast');
-            toast.style.display = 'block';
-            setTimeout(() => { toast.style.display = 'none'; }, 2500);
+        async function shareVercel() {
+            const data = { title: 'ILIMITED Cloud', text: 'Nube Ilimitada de KodxStudios', url: TARGET_URL };
+            if (navigator.share) await navigator.share(data);
+            else copyVercel();
         }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeLightbox();
-        });
     </script>
 </body>
 </html>
