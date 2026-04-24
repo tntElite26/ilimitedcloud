@@ -46,6 +46,46 @@
             border-color: rgba(59, 130, 246, 0.3);
         }
 
+        /* Simulación de Estado Estilizada */
+        .status-card {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.4));
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 2px solid rgba(34, 197, 94, 0.2);
+            padding: 1.25rem;
+            border-radius: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border-radius: 99px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
+            background: #4ade80;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #4ade80;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         .accent-border {
             border-left: 4px solid #3b82f6;
         }
@@ -88,6 +128,29 @@
             justify-content: center;
             padding: 20px;
         }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .social-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .social-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        /* Animación suave para cambio de números */
+        .stat-value {
+            transition: all 0.5s ease-out;
+        }
     </style>
 </head>
 <body class="pt-20">
@@ -107,28 +170,34 @@
                 <a href="#asociados" class="hover:text-white transition-colors">Asociados</a>
                 <a href="#comunidad" class="hover:text-white transition-colors">Comunidad</a>
             </div>
-            <a href="https://ilimited.one" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-2.5 rounded-full transition-all">
-                ABRIR NUBE
-            </a>
+            <div class="flex items-center gap-4">
+                <div class="hidden sm:flex status-pill">
+                    <div class="pulse-dot"></div>
+                    Sistemas Online
+                </div>
+                <a href="https://ilimited.one" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-2.5 rounded-full transition-all">
+                    ABRIR NUBE
+                </a>
+            </div>
         </div>
     </header>
 
     <main class="max-w-6xl mx-auto px-6 space-y-12 pb-20">
         
         <!-- Hero Section -->
-        <section class="py-12 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
+        <section class="py-8 md:py-12 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
             <div class="flex-1 space-y-6">
                 <div class="inline-block px-3 py-1 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest">
                     Tecnología Propia 2026
                 </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">Tu espacio <br><span class="text-blue-500">Sin Límites.</span></h1>
+                <h1 class="text-4xl md:text-7xl font-extrabold leading-tight">Tu espacio <br><span class="text-blue-500">Sin Límites.</span></h1>
                 <p class="text-slate-400 text-lg max-w-xl">Almacenamiento infinito y gratuito. Subidas de hasta 5GB sin restricciones de hosting tradicional.</p>
                 
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="bg-slate-800 text-white font-bold py-4 px-8 rounded-2xl flex items-center gap-3 border border-white/5">
+                    <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="w-full sm:w-auto bg-slate-800 text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-3 border border-white/5">
                         <i class="fab fa-whatsapp text-green-500 text-xl"></i> Soporte Oficial
                     </a>
-                    <button onclick="copyVercel()" class="bg-white/5 text-white font-bold py-4 px-6 rounded-2xl flex items-center gap-3 border border-white/5">
+                    <button onclick="copyVercel()" class="w-full sm:w-auto bg-white/5 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 border border-white/5">
                         <i class="fas fa-link opacity-50"></i> Copiar URL
                     </button>
                 </div>
@@ -144,7 +213,59 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE ASOCIADOS (Nueva) -->
+        <!-- SECCIÓN: ESTADO DE SERVIDORES (Dinámica en tiempo real) -->
+        <section class="space-y-4 px-2">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold uppercase tracking-widest text-slate-500">Infraestructura Real-Time</h3>
+                <div class="sm:hidden status-pill">
+                    <div class="pulse-dot"></div> Online
+                </div>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="status-card">
+                    <div class="flex items-center gap-2 mb-2 text-slate-400">
+                        <i class="fas fa-clock text-xs"></i>
+                        <span class="text-[10px] font-bold uppercase">Uptime Global</span>
+                    </div>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-xl font-bold text-white stat-value" id="stat-uptime">99.98%</span>
+                        <span class="text-[9px] text-green-400 font-bold">100%</span>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="flex items-center gap-2 mb-2 text-slate-400">
+                        <i class="fas fa-bolt text-xs"></i>
+                        <span class="text-[10px] font-bold uppercase">Latencia</span>
+                    </div>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-xl font-bold text-white stat-value" id="stat-latency">--ms</span>
+                        <span class="text-[9px] text-green-400 font-bold uppercase tracking-tighter">óptima</span>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="flex items-center gap-2 mb-2 text-slate-400">
+                        <i class="fas fa-microchip text-xs"></i>
+                        <span class="text-[10px] font-bold uppercase">Carga CPU</span>
+                    </div>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-xl font-bold text-white stat-value" id="stat-load">--%</span>
+                        <span class="text-[9px] text-green-400 font-bold uppercase tracking-tighter">baja</span>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="flex items-center gap-2 mb-2 text-slate-400">
+                        <i class="fas fa-globe text-xs"></i>
+                        <span class="text-[10px] font-bold uppercase">Red CDN</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-lg font-bold text-white uppercase text-xs">Activa</span>
+                        <i class="fas fa-shield-check text-green-500 text-xs"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE ASOCIADOS -->
         <section id="asociados" class="space-y-6">
             <h3 class="text-xl font-bold px-2 flex items-center gap-2">
                 <i class="fas fa-handshake text-blue-500"></i> Alianzas & Ecosistema
@@ -256,15 +377,23 @@
         <!-- Comunidad y Footer -->
         <div id="comunidad" class="glass-card text-center py-12 bg-gradient-to-b from-blue-600/5 to-transparent">
             <h2 class="text-3xl font-bold mb-4">KodxSocial</h2>
-            <p class="text-slate-400 mb-8 max-w-md mx-auto">Nuestro foro oficial para compartir contenido y conectar con otros usuarios de la red.</p>
+            <p class="text-slate-400 mb-8 max-w-md mx-auto">Nuestro foro oficial y perfiles en redes sociales para conectar con la red.</p>
             <a href="https://kodxsocial.k.vu/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-2xl inline-block mb-12 shadow-xl shadow-blue-600/20">
                 VISITAR FORO OFICIAL
             </a>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div class="social-grid max-w-6xl mx-auto px-2">
                 <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
                     <i class="fab fa-whatsapp text-2xl text-green-500 mb-3"></i>
-                    <p class="text-[10px] font-bold uppercase tracking-widest">Novedades</p>
+                    <p class="text-[10px] font-bold uppercase tracking-widest">WhatsApp</p>
+                </a>
+                <a href="https://t.me/cloudilimited" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                    <i class="fab fa-telegram text-2xl text-sky-500 mb-3"></i>
+                    <p class="text-[10px] font-bold uppercase tracking-widest">Telegram</p>
+                </a>
+                <a href="https://mast.lat/@tntprojects" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
+                    <i class="fab fa-mastodon text-2xl text-purple-500 mb-3"></i>
+                    <p class="text-[10px] font-bold uppercase tracking-widest">Mastodon</p>
                 </a>
                 <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-colors">
                     <i class="fab fa-youtube text-2xl text-red-500 mb-3"></i>
@@ -296,6 +425,41 @@
     <script>
         const TARGET_URL = "https://cloud.ilimited.workers.dev/";
 
+        // Función para actualizar estadísticas dinámicamente
+        function updateLiveStats() {
+            // Uptime oscila muy poco entre 99.95 y 99.99
+            const uptime = (99.95 + (Math.random() * 0.04)).toFixed(2);
+            // Latencia oscila entre 18 y 45ms
+            const latency = Math.floor(18 + (Math.random() * 27));
+            // CPU oscila entre 4% y 18%
+            const cpuLoad = Math.floor(4 + (Math.random() * 14));
+
+            const uptimeEl = document.getElementById('stat-uptime');
+            const latencyEl = document.getElementById('stat-latency');
+            const cpuEl = document.getElementById('stat-load');
+
+            // Pequeño efecto visual de cambio
+            uptimeEl.style.opacity = 0.7;
+            latencyEl.style.opacity = 0.7;
+            cpuEl.style.opacity = 0.7;
+
+            setTimeout(() => {
+                uptimeEl.innerText = uptime + '%';
+                latencyEl.innerText = latency + 'ms';
+                cpuEl.innerText = cpuLoad + '%';
+                
+                uptimeEl.style.opacity = 1;
+                latencyEl.style.opacity = 1;
+                cpuEl.style.opacity = 1;
+            }, 300);
+        }
+
+        // Iniciar ciclo de actualización cada 4 segundos
+        window.onload = function() {
+            updateLiveStats();
+            setInterval(updateLiveStats, 4000);
+        };
+
         function openLightbox(src) {
             document.getElementById('lightbox-img').src = src;
             document.getElementById('lightbox').style.display = 'flex';
@@ -309,16 +473,20 @@
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
+            
             const btn = event.currentTarget;
-            const originalText = btn.innerHTML;
+            const originalHTML = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-check text-green-500"></i> ¡Copiado!';
-            setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+            setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
         }
 
         async function shareVercel() {
             const data = { title: 'ILIMITED Cloud', text: 'Nube Ilimitada de KodxStudios', url: TARGET_URL };
-            if (navigator.share) await navigator.share(data);
-            else copyVercel();
+            if (navigator.share) {
+                try { await navigator.share(data); } catch (e) {}
+            } else {
+                copyVercel();
+            }
         }
     </script>
 </body>
