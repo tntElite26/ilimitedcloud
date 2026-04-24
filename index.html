@@ -216,6 +216,12 @@
             letter-spacing: -0.02em;
             transition: color 0.3s ease;
         }
+
+        .service-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body class="pt-20">
@@ -278,7 +284,7 @@
             </div>
         </section>
 
-        <!-- NUEVA SECCIÓN: DE LOS CREADORES DE (LEGADO) -->
+        <!-- SECCIÓN: DE LOS CREADORES DE (LEGADO) -->
         <section class="py-4 border-y border-white/5">
             <p class="text-center md:text-left text-slate-500 text-xs font-bold uppercase tracking-widest mb-4 px-2">De los Creadores de</p>
             <div class="flex flex-wrap justify-center md:justify-start items-center gap-x-10 gap-y-4 px-2">
@@ -339,7 +345,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: TABLA COMPARATIVA -->
+        <!-- SECCIÓN: TABLA COMPARATIVA CON LOGOS -->
         <section id="comparativa" class="space-y-6">
             <div class="px-2">
                 <h3 class="text-2xl font-bold mb-2">¿Por qué ILIMITED?</h3>
@@ -359,8 +365,11 @@
                     </thead>
                     <tbody>
                         <tr class="row-highlight">
-                            <td class="text-blue-400 flex items-center gap-2">
-                                <i class="fas fa-infinity"></i> ILIMITED
+                            <td class="text-blue-400 flex items-center gap-3">
+                                <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center text-[10px]">
+                                    <i class="fas fa-infinity text-white"></i>
+                                </div>
+                                ILIMITED
                             </td>
                             <td>ILIMITADO</td>
                             <td>Hasta 5 GB</td>
@@ -368,63 +377,81 @@
                             <td class="text-green-400 text-xs">Ninguna / Alta Velocidad</td>
                         </tr>
                         <tr>
-                            <td>Google Drive</td>
+                            <td class="flex items-center gap-3">
+                                <i class="fab fa-google-drive text-blue-500 text-lg"></i> Google Drive
+                            </td>
                             <td>15 GB (Compartido)</td>
                             <td>Variable</td>
                             <td>Activo</td>
                             <td class="text-slate-500 text-xs">Límite de descarga diaria</td>
                         </tr>
                         <tr>
-                            <td>MEGA</td>
+                            <td class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-red-600 rounded flex items-center justify-center text-[10px] text-white font-bold">M</div> MEGA
+                            </td>
                             <td>20 GB</td>
                             <td>Limitado</td>
                             <td>Activo</td>
                             <td class="text-slate-500 text-xs">Cuota de transferencia IP</td>
                         </tr>
                         <tr>
-                            <td>Terabox</td>
+                            <td class="flex items-center gap-3">
+                                <i class="fas fa-box text-orange-500 text-lg"></i> Terabox
+                            </td>
                             <td>1024 GB</td>
                             <td>4 GB</td>
                             <td>Activo</td>
                             <td class="text-slate-500 text-xs">Exceso de publicidad / Lento</td>
                         </tr>
                         <tr>
-                            <td>Mediafire</td>
+                            <td class="flex items-center gap-3">
+                                <i class="fas fa-fire text-blue-400 text-lg"></i> Mediafire
+                            </td>
                             <td>10 GB</td>
                             <td>Limitado</td>
                             <td>Inactividad</td>
                             <td class="text-slate-500 text-xs">Borran por copyright agresivo</td>
                         </tr>
                         <tr>
-                            <td>Pixeldrain</td>
+                            <td class="flex items-center gap-3">
+                                <i class="fas fa-tint text-purple-400 text-lg"></i> Pixeldrain
+                            </td>
                             <td>5 GB (Temporal)</td>
                             <td>10 GB</td>
                             <td>60 Días</td>
                             <td class="text-slate-500 text-xs">Borran si no hay visitas</td>
                         </tr>
                         <tr>
-                            <td>Dropbox</td>
+                            <td class="flex items-center gap-3">
+                                <i class="fab fa-dropbox text-blue-400 text-lg"></i> Dropbox
+                            </td>
                             <td>2 GB</td>
                             <td>Ilimitado</td>
                             <td>Activo</td>
                             <td class="text-slate-500 text-xs">Espacio extremadamente bajo</td>
                         </tr>
                         <tr>
-                            <td>OneDrive</td>
+                            <td class="flex items-center gap-3">
+                                <i class="fab fa-windows text-blue-500 text-lg"></i> OneDrive
+                            </td>
                             <td>5 GB</td>
                             <td>Limitado</td>
                             <td>Activo</td>
                             <td class="text-slate-500 text-xs">Sincronización invasiva</td>
                         </tr>
                         <tr>
-                            <td>pCloud</td>
+                            <td class="flex items-center gap-3">
+                                <i class="fas fa-cloud text-blue-300 text-lg"></i> pCloud
+                            </td>
                             <td>10 GB</td>
                             <td>Ilimitado</td>
                             <td>Activo</td>
                             <td class="text-slate-500 text-xs">Velocidad capada en free</td>
                         </tr>
                         <tr>
-                            <td>Yandex Disk</td>
+                            <td class="flex items-center gap-3">
+                                <i class="fab fa-yandex text-red-500 text-lg"></i> Yandex Disk
+                            </td>
                             <td>10 GB</td>
                             <td>Limitado</td>
                             <td>Activo</td>
@@ -487,7 +514,6 @@
                         <p class="text-xs font-semibold">cloudflare.com</p>
                     </div>
                 </div>
-                <!-- NUEVO ASOCIADO: GITHUB -->
                 <div class="partner-card">
                     <i class="fab fa-github text-white text-2xl"></i>
                     <div>
