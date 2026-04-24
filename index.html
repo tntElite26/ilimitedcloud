@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ILIMITED | Enterprise Cloud</title>
+    
+    <!-- Meta Tags para Previsualización (WhatsApp, Facebook, Twitter) -->
+    <meta name="description" content="Almacenamiento infinito y gratuito. Tu espacio sin límites con tecnología propia 2026.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cloud.ilimited.workers.dev/">
+    <meta property="og:title" content="ILIMITED | Enterprise Cloud">
+    <meta property="og:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 5GB sin restricciones.">
+    <meta property="og:image" content="https://ilimited.one/v/C7B4XR">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://cloud.ilimited.workers.dev/">
+    <meta property="twitter:title" content="ILIMITED | Enterprise Cloud">
+    <meta property="twitter:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 5GB sin restricciones.">
+    <meta property="twitter:image" content="https://ilimited.one/v/C7B4XR">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -211,7 +229,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: ESTADO DE SERVIDORES (Sin simulador de espacio) -->
+        <!-- SECCIÓN: ESTADO DE SERVIDORES -->
         <section class="space-y-4 px-2">
             <div class="flex items-center justify-between">
                 <h3 class="text-sm font-bold uppercase tracking-widest text-slate-500">Infraestructura Real-Time</h3>
@@ -221,7 +239,6 @@
             </div>
             
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                <!-- Stats de Red -->
                 <div class="status-card">
                     <div class="flex items-center gap-2 mb-2 text-slate-400">
                         <i class="fas fa-clock text-xs"></i>
@@ -299,14 +316,14 @@
             </div>
         </section>
 
-        <!-- Sección: Infraestructura y Sobre Nosotros -->
+        <!-- Sobre Nosotros e Infraestructura -->
         <div id="infraestructura" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <section class="glass-card">
                 <h2 class="text-xl font-bold mb-4 flex items-center gap-3">
                     <i class="fas fa-info-circle text-blue-500"></i> Sobre Nosotros
                 </h2>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    ILIMITED es la solución definitiva para quienes buscan libertad de almacenamiento. Sin cuotas mensuales ni suscripciones ocultas, ofrecemos un espacio infinito para tus archivos, fotos y documentos. Nuestra misión es democratizar el acceso a la nube con potencia real.
+                    ILIMITED es la solución definitiva para quienes buscan libertad de almacenamiento. Sin cuotas mensuales ni suscripciones ocultas, ofrecemos un espacio infinito para tus archivos.
                 </p>
             </section>
             <section class="glass-card">
@@ -314,7 +331,7 @@
                     <i class="fas fa-server text-blue-500"></i> Nuestra Infraestructura
                 </h2>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Operamos sobre nuestra propia arquitectura escalable. <span class="text-white font-bold">No utilizamos cPanel ni hostings compartidos</span>. Operamos sobre la misma infraestructura de las nubes gigantes, garantizando potencia, estabilidad y una latencia mínima para tus datos.
+                    Operamos sobre nuestra propia arquitectura escalable. Garantizamos potencia, estabilidad y una latencia mínima para tus datos.
                 </p>
             </section>
         </div>
@@ -329,7 +346,7 @@
             </div>
         </section>
 
-        <!-- Resiliencia y Novedades -->
+        <!-- Novedades -->
         <div id="novedades" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="glass-card md:col-span-2">
                 <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
@@ -351,19 +368,19 @@
                     <i class="fas fa-shield-alt text-blue-400"></i> Resiliencia
                 </h3>
                 <p class="text-xs text-slate-400 leading-relaxed">
-                    Arquitectura redundante: si hubiera una caída, sus archivos permanecen seguros en servidores independientes. La restauración es inmediata sin pérdida de datos.
+                    Arquitectura redundante: restauración inmediata sin pérdida de datos en caso de incidentes.
                 </p>
             </div>
         </div>
 
-        <!-- Seguridad y Video -->
+        <!-- Video y Seguridad -->
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="glass-card">
                 <h3 class="text-lg font-bold mb-4 text-red-500 text-center md:text-left">Protocolo de Seguridad</h3>
                 <ul class="text-xs text-slate-400 space-y-4">
-                    <li class="flex gap-3"><i class="fas fa-user-shield text-lg opacity-30"></i> Sube archivos privados en ZIP o RAR con contraseña para máxima privacidad.</li>
-                    <li class="flex gap-3"><i class="fas fa-ban text-lg opacity-30 text-red-500"></i> Prohibido el malware: enlaces infectados serán eliminados sin previo aviso.</li>
-                    <li class="flex gap-3"><i class="fas fa-save text-lg opacity-30"></i> Guarda tus enlaces en un bloc de notas para no perderlos jamás.</li>
+                    <li class="flex gap-3"><i class="fas fa-user-shield text-lg opacity-30"></i> Sube archivos privados en ZIP con contraseña.</li>
+                    <li class="flex gap-3"><i class="fas fa-ban text-lg opacity-30 text-red-500"></i> Enlaces con malware serán eliminados.</li>
+                    <li class="flex gap-3"><i class="fas fa-save text-lg opacity-30"></i> Guarda tus enlaces externamente para mayor seguridad.</li>
                 </ul>
             </div>
             <div class="video-wrapper">
@@ -371,11 +388,11 @@
             </div>
         </section>
 
-        <!-- Comunidad y Footer -->
+        <!-- Comunidad -->
         <div id="comunidad" class="glass-card text-center py-12 bg-gradient-to-b from-blue-600/5 to-transparent">
             <h2 class="text-3xl font-bold mb-4">KodxSocial</h2>
-            <p class="text-slate-400 mb-8 max-w-md mx-auto">Nuestro foro oficial y perfiles en redes sociales para conectar con la red.</p>
-            <a href="https://kodxsocial.k.vu/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-2xl inline-block mb-12 shadow-xl shadow-blue-600/20 transition-all hover:scale-105 active:scale-95">
+            <p class="text-slate-400 mb-8 max-w-md mx-auto">Nuestro foro oficial y perfiles en redes sociales.</p>
+            <a href="https://kodxsocial.k.vu/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-2xl inline-block mb-12 transition-all hover:scale-105">
                 VISITAR FORO OFICIAL
             </a>
 
@@ -406,15 +423,13 @@
                 </button>
             </div>
         </div>
-
     </main>
 
     <footer class="py-12 border-t border-white/5 text-center">
         <p class="text-sm font-semibold text-slate-400">Plataforma gestionada por <span class="text-blue-500">KodxStudios</span></p>
-        <p class="text-[10px] text-slate-600 uppercase tracking-[0.4em] mt-3">© 2026 ILIMITED. Infraestructura de Red Global.</p>
+        <p class="text-[10px] text-slate-600 uppercase tracking-[0.4em] mt-3">© 2026 ILIMITED.</p>
     </footer>
 
-    <!-- Lightbox -->
     <div id="lightbox" onclick="this.style.display='none'">
         <img id="lightbox-img" src="" class="max-h-full max-w-full rounded-2xl shadow-2xl">
     </div>
@@ -426,7 +441,6 @@
             const uptime = (99.95 + (Math.random() * 0.04)).toFixed(2);
             const latency = Math.floor(18 + (Math.random() * 27));
             const cpuLoad = Math.floor(4 + (Math.random() * 14));
-
             document.getElementById('stat-uptime').innerText = uptime + '%';
             document.getElementById('stat-latency').innerText = latency + 'ms';
             if(document.getElementById('stat-load')) document.getElementById('stat-load').innerText = cpuLoad + '%';
@@ -443,26 +457,20 @@
         }
 
         function copyVercel() {
-            const text = TARGET_URL;
             const el = document.createElement('textarea');
-            el.value = text;
+            el.value = TARGET_URL;
             document.body.appendChild(el);
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
             const btn = event.currentTarget;
-            const originalHTML = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-check text-green-500"></i> ¡Copiado!';
-            setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+            setTimeout(() => { btn.innerHTML = '<i class="fas fa-link opacity-50"></i> Copiar URL'; }, 2000);
         }
 
         async function shareVercel() {
             const data = { title: 'ILIMITED Cloud', text: 'Nube Ilimitada de KodxStudios', url: TARGET_URL };
-            if (navigator.share) {
-                try { await navigator.share(data); } catch (e) {}
-            } else {
-                copyVercel();
-            }
+            if (navigator.share) { try { await navigator.share(data); } catch (e) {} } else { copyVercel(); }
         }
     </script>
 </body>
