@@ -55,12 +55,6 @@
             transition: all 0.3s ease;
         }
 
-        .storage-card {
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-left: 4px solid #3b82f6;
-        }
-
         .status-pill {
             display: inline-flex;
             align-items: center;
@@ -155,26 +149,6 @@
         .stat-value {
             transition: all 0.5s ease-out;
         }
-
-        .infinite-progress {
-            position: relative;
-            height: 4px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .infinite-progress-bar {
-            position: absolute;
-            height: 100%;
-            background: #3b82f6;
-            width: 30%;
-            left: -30%;
-            animation: slide 3s infinite linear;
-        }
-        @keyframes slide {
-            0% { left: -30%; }
-            100% { left: 100%; }
-        }
     </style>
 </head>
 <body class="pt-20">
@@ -237,7 +211,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: ESTADO DE SERVIDORES (Completo) -->
+        <!-- SECCIÓN: ESTADO DE SERVIDORES (Sin simulador de espacio) -->
         <section class="space-y-4 px-2">
             <div class="flex items-center justify-between">
                 <h3 class="text-sm font-bold uppercase tracking-widest text-slate-500">Infraestructura Real-Time</h3>
@@ -246,25 +220,7 @@
                 </div>
             </div>
             
-            <div class="grid grid-cols-2 lg:grid-cols-5 gap-3">
-                <!-- Panel de Almacenamiento (Inicia en 650GB) -->
-                <div class="status-card storage-card col-span-2 lg:col-span-1">
-                    <div class="flex items-center justify-between mb-2 text-blue-400">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-database text-xs"></i>
-                            <span class="text-[10px] font-bold uppercase">Uso Global</span>
-                        </div>
-                        <i class="fas fa-infinity text-[8px] opacity-50"></i>
-                    </div>
-                    <div class="flex items-baseline gap-1 mb-2">
-                        <span class="text-xl font-black text-white tracking-tighter" id="stat-storage">650.00</span>
-                        <span class="text-[9px] text-blue-400 font-bold uppercase" id="storage-unit">GB</span>
-                    </div>
-                    <div class="infinite-progress">
-                        <div class="infinite-progress-bar"></div>
-                    </div>
-                </div>
-
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
                 <!-- Stats de Red -->
                 <div class="status-card">
                     <div class="flex items-center gap-2 mb-2 text-slate-400">
@@ -465,13 +421,8 @@
 
     <script>
         const TARGET_URL = "https://cloud.ilimited.workers.dev/";
-        
-        // El espacio comienza en 650.00 GB
-        let currentStorage = 650.00;
-        let isTB = false;
 
         function updateLiveStats() {
-            // Stats de red normales
             const uptime = (99.95 + (Math.random() * 0.04)).toFixed(2);
             const latency = Math.floor(18 + (Math.random() * 27));
             const cpuLoad = Math.floor(4 + (Math.random() * 14));
@@ -481,38 +432,9 @@
             if(document.getElementById('stat-load')) document.getElementById('stat-load').innerText = cpuLoad + '%';
         }
 
-        function updateStorageProgress() {
-            // Aumento muy lento y progresivo (GB)
-            const increment = (Math.random() * 0.005) + 0.001; 
-            currentStorage += increment;
-            
-            const storageEl = document.getElementById('stat-storage');
-            const unitEl = document.getElementById('storage-unit');
-            
-            // Si supera 1024 GB, cambiar visualmente a TB para realismo (opcional, pero aquí lo mantengo dinámico)
-            let displayVal = currentStorage;
-            if (currentStorage >= 1024 && !isTB) {
-                // Si prefieres que siempre muestre TB como antes, cambia el inicio a 1248 y isTB a true
-                // Pero aquí respetamos el inicio de 650GB solicitado
-            }
-
-            storageEl.innerText = displayVal.toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-
-            // Pequeño efecto de brillo al actualizar
-            storageEl.style.color = "#60a5fa";
-            setTimeout(() => { storageEl.style.color = "white"; }, 500);
-        }
-
         window.onload = function() {
             updateLiveStats();
-            // Stats de red cada 4 segundos
             setInterval(updateLiveStats, 4000);
-            
-            // Almacenamiento cada 5 segundos (progresión lenta desde 650)
-            setInterval(updateStorageProgress, 5000);
         };
 
         function openLightbox(src) {
