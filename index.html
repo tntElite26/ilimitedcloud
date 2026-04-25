@@ -5,25 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ILIMITED | Enterprise Cloud</title>
     
-    <!-- Meta Tags para Previsualización (WhatsApp, Facebook, Twitter) -->
+    <!-- Meta Tags para Previsualización -->
     <meta name="description" content="Almacenamiento infinito y gratuito. Tu espacio sin límites con tecnología propia 2026.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cloud.ilimited.workers.dev/">
+    <meta property="og:url" content="https://freeilimited.k.vu/">
     <meta property="og:title" content="ILIMITED | Enterprise Cloud">
     <meta property="og:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 5GB sin restricciones.">
     <meta property="og:image" content="https://ilimited.one/v/C7B4XR">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://cloud.ilimited.workers.dev/">
+    <meta property="twitter:url" content="https://freeilimited.k.vu/">
     <meta property="twitter:title" content="ILIMITED | Enterprise Cloud">
     <meta property="twitter:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 5GB sin restricciones.">
     <meta property="twitter:image" content="https://ilimited.one/v/C7B4XR">
 
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap');
         
@@ -32,6 +35,7 @@
             background-color: #020617;
             color: #f8fafc;
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
         .main-header {
@@ -70,7 +74,6 @@
             border-bottom: 2px solid rgba(34, 197, 94, 0.2);
             padding: 1.25rem;
             border-radius: 1.25rem;
-            transition: all 0.3s ease;
         }
 
         .status-pill {
@@ -85,7 +88,6 @@
             font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .pulse-dot {
@@ -103,23 +105,7 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        .accent-border {
-            border-left: 4px solid #3b82f6;
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 16px;
-            background: #000;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-        }
+        .accent-border { border-left: 4px solid #3b82f6; }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
 
@@ -132,6 +118,7 @@
             border: 2px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
             transition: transform 0.2s ease;
+            background: #0f172a; /* Placeholder color */
         }
         .img-gallery-item:hover { transform: scale(1.02); }
 
@@ -146,25 +133,6 @@
             padding: 20px;
         }
 
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        @media (min-width: 640px) {
-            .social-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .social-grid {
-                grid-template-columns: repeat(6, 1fr);
-            }
-        }
-
-        /* Tabla Comparativa Styles */
         .comparison-container {
             overflow-x: auto;
             border-radius: 20px;
@@ -190,15 +158,8 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.02);
             font-size: 14px;
         }
-        .row-highlight {
-            background: rgba(59, 130, 246, 0.08);
-        }
-        .row-highlight td {
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-            font-weight: 700;
-        }
+        .row-highlight { background: rgba(59, 130, 246, 0.08); }
 
-        /* Donation Section Custom Styles */
         .donation-card {
             background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.6));
             border: 1px solid rgba(59, 130, 246, 0.1);
@@ -206,27 +167,19 @@
         }
         .donation-card:hover {
             border-color: rgba(59, 130, 246, 0.4);
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
             transform: translateY(-5px);
         }
 
-        /* Legacy Section Style */
         .legacy-tag {
             font-weight: 800;
             letter-spacing: -0.02em;
             transition: color 0.3s ease;
         }
-
-        .service-icon {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-        }
     </style>
 </head>
 <body class="pt-20">
 
-    <!-- CABECERA SUPERIOR FIJA -->
+    <!-- CABECERA -->
     <header class="fixed top-0 left-0 right-0 z-50 main-header">
         <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -235,18 +188,18 @@
                 </div>
                 <span class="font-bold text-xl tracking-tight">ILIMITED</span>
             </div>
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
                 <a href="#infraestructura" class="hover:text-white transition-colors">Infraestructura</a>
                 <a href="#comparativa" class="hover:text-white transition-colors">Comparativa</a>
                 <a href="#donaciones" class="hover:text-white transition-colors">Donar</a>
                 <a href="#asociados" class="hover:text-white transition-colors">Asociados</a>
-            </div>
+            </nav>
             <div class="flex items-center gap-4">
                 <div class="hidden sm:flex status-pill">
                     <div class="pulse-dot"></div>
                     Sistemas Online
                 </div>
-                <a href="https://ilimited.one" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-2.5 rounded-full transition-all">
+                <a href="https://Ilimited.one" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-2.5 rounded-full transition-all">
                     ABRIR NUBE
                 </a>
             </div>
@@ -284,7 +237,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: DE LOS CREADORES DE (LEGADO) -->
+        <!-- LEGADO -->
         <section class="py-4 border-y border-white/5">
             <p class="text-center md:text-left text-slate-500 text-xs font-bold uppercase tracking-widest mb-4 px-2">De los Creadores de</p>
             <div class="flex flex-wrap justify-center md:justify-start items-center gap-x-10 gap-y-4 px-2">
@@ -295,8 +248,8 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: ESTADO DE SERVIDORES -->
-        <section class="space-y-4 px-2">
+        <!-- ESTADO DE SERVIDORES -->
+        <section id="infraestructura" class="space-y-4 px-2">
             <div class="flex items-center justify-between">
                 <h3 class="text-sm font-bold uppercase tracking-widest text-slate-500">Infraestructura Real-Time</h3>
                 <div class="sm:hidden status-pill">
@@ -345,7 +298,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: TABLA COMPARATIVA CON LOGOS -->
+        <!-- TABLA COMPARATIVA -->
         <section id="comparativa" class="space-y-6">
             <div class="px-2">
                 <h3 class="text-2xl font-bold mb-2">¿Por qué ILIMITED?</h3>
@@ -374,7 +327,7 @@
                             <td>ILIMITADO</td>
                             <td>Hasta 5 GB</td>
                             <td>NUNCA</td>
-                            <td class="text-green-400 text-xs">Ninguna / Alta Velocidad</td>
+                            <td class="text-green-400 text-xs font-bold">Ninguna / Alta Velocidad</td>
                         </tr>
                         <tr>
                             <td class="flex items-center gap-3">
@@ -401,7 +354,7 @@
                             <td>1024 GB</td>
                             <td>4 GB</td>
                             <td>Activo</td>
-                            <td class="text-slate-500 text-xs">Exceso de publicidad / Lento</td>
+                            <td class="text-slate-500 text-xs">Exceso de publicidad</td>
                         </tr>
                         <tr>
                             <td class="flex items-center gap-3">
@@ -410,7 +363,7 @@
                             <td>10 GB</td>
                             <td>Limitado</td>
                             <td>Inactividad</td>
-                            <td class="text-slate-500 text-xs">Borran por copyright agresivo</td>
+                            <td class="text-slate-500 text-xs">Borran por copyright</td>
                         </tr>
                         <tr>
                             <td class="flex items-center gap-3">
@@ -428,7 +381,7 @@
                             <td>2 GB</td>
                             <td>Ilimitado</td>
                             <td>Activo</td>
-                            <td class="text-slate-500 text-xs">Espacio extremadamente bajo</td>
+                            <td class="text-slate-500 text-xs">Espacio muy bajo</td>
                         </tr>
                         <tr>
                             <td class="flex items-center gap-3">
@@ -446,7 +399,7 @@
                             <td>10 GB</td>
                             <td>Ilimitado</td>
                             <td>Activo</td>
-                            <td class="text-slate-500 text-xs">Velocidad capada en free</td>
+                            <td class="text-slate-500 text-xs">Velocidad capada</td>
                         </tr>
                         <tr>
                             <td class="flex items-center gap-3">
@@ -455,241 +408,124 @@
                             <td>10 GB</td>
                             <td>Limitado</td>
                             <td>Activo</td>
-                            <td class="text-slate-500 text-xs">Bloqueado en ciertas regiones</td>
+                            <td class="text-slate-500 text-xs">Bloqueo regional</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="md:hidden text-center text-[10px] text-slate-500 animate-pulse">
-                <i class="fas fa-arrows-alt-h mr-1"></i> Desliza para ver la tabla completa
-            </div>
         </section>
 
-        <!-- SECCIÓN: DONACIONES VOLUNTARIAS -->
+        <!-- DONACIONES -->
         <section id="donaciones" class="space-y-8 py-4">
             <div class="px-2 text-center md:text-left">
                 <h3 class="text-2xl font-bold flex items-center justify-center md:justify-start gap-3">
                     <i class="fas fa-heart text-red-500"></i> Donaciones Voluntarias
                 </h3>
-                <p class="text-slate-400 text-sm mt-2">Mantenemos el servicio gratuito gracias a tu apoyo.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
-                <!-- PayPal -->
                 <a href="https://www.paypal.me/kodxstudios" target="_blank" class="donation-card p-8 rounded-3xl flex flex-col items-center text-center group">
                     <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
                         <i class="fab fa-paypal text-3xl text-blue-500"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-2">PayPal</h4>
-                    <p class="text-slate-400 text-xs mb-6">Apoyo para mantenimiento de servidores internacionales.</p>
-                    <span class="text-blue-500 font-bold text-sm flex items-center gap-2">
-                        Donar Ahora <i class="fas fa-external-link-alt text-[10px]"></i>
-                    </span>
+                    <span class="text-blue-500 font-bold text-sm">Donar Ahora <i class="fas fa-external-link-alt ml-1"></i></span>
                 </a>
 
-                <!-- Davivienda -->
                 <div onclick="copyDonationID('DAVIBCA061', 'Davivienda')" class="donation-card p-8 rounded-3xl flex flex-col items-center text-center cursor-pointer group">
                     <div class="w-16 h-16 bg-red-500/10 rounded-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
                         <i class="fas fa-university text-3xl text-red-500"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-2">Davivienda</h4>
-                    <p class="text-slate-400 text-xs mb-6">ID: @DAVIBCA061 <br> (Haz clic para copiar el código)</p>
-                    <span id="copy-label-dav" class="text-red-500 font-bold text-sm flex items-center gap-2">
-                        Copiar ID <i class="fas fa-copy text-[10px]"></i>
-                    </span>
+                    <p class="text-slate-400 text-xs mb-6">ID: @DAVIBCA061</p>
+                    <span id="copy-label-dav" class="text-red-500 font-bold text-sm">Copiar ID <i class="fas fa-copy ml-1"></i></span>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN DE ASOCIADOS -->
+        <!-- ASOCIADOS -->
         <section id="asociados" class="space-y-6">
-            <h3 class="text-xl font-bold px-2 flex items-center gap-2">
-                <i class="fas fa-handshake text-blue-500"></i> Alianzas & Ecosistema
-            </h3>
+            <h3 class="text-xl font-bold px-2 flex items-center gap-2"><i class="fas fa-handshake text-blue-500"></i> Alianzas</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-2">
-                <div class="partner-card">
-                    <i class="fab fa-cloudflare text-orange-500 text-2xl"></i>
-                    <div>
-                        <p class="text-[10px] text-slate-500 uppercase font-bold">Seguridad & Red</p>
-                        <p class="text-xs font-semibold">cloudflare.com</p>
-                    </div>
-                </div>
-                <div class="partner-card">
-                    <i class="fab fa-github text-white text-2xl"></i>
-                    <div>
-                        <p class="text-[10px] text-slate-500 uppercase font-bold">Open Source</p>
-                        <p class="text-xs font-semibold">github.com</p>
-                    </div>
-                </div>
-                <div class="partner-card">
-                    <i class="fas fa-shopping-cart text-blue-400 text-2xl"></i>
-                    <div>
-                        <p class="text-[10px] text-slate-500 uppercase font-bold">E-Commerce</p>
-                        <p class="text-xs font-semibold">shopplink.site</p>
-                    </div>
-                </div>
-                <div class="partner-card">
-                    <i class="fas fa-play-circle text-red-500 text-2xl"></i>
-                    <div>
-                        <p class="text-[10px] text-slate-500 uppercase font-bold">Video Decentralizado</p>
-                        <p class="text-xs font-semibold">d.tube</p>
-                    </div>
-                </div>
+                <div class="partner-card"><i class="fab fa-cloudflare text-orange-500 text-2xl"></i><div><p class="text-xs font-semibold">cloudflare.com</p></div></div>
+                <div class="partner-card"><i class="fab fa-github text-white text-2xl"></i><div><p class="text-xs font-semibold">github.com</p></div></div>
+                <div class="partner-card"><i class="fas fa-shopping-cart text-blue-400 text-2xl"></i><div><p class="text-xs font-semibold">shopplink.site</p></div></div>
+                <div class="partner-card"><i class="fas fa-play-circle text-red-500 text-2xl"></i><div><p class="text-xs font-semibold">d.tube</p></div></div>
             </div>
         </section>
 
-        <!-- Sobre Nosotros e Infraestructura -->
-        <div id="infraestructura" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <section class="glass-card">
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-3">
-                    <i class="fas fa-info-circle text-blue-500"></i> Sobre Nosotros
-                </h2>
-                <p class="text-sm text-slate-400 leading-relaxed">
-                    ILIMITED es la solución definitiva para quienes buscan libertad de almacenamiento. Sin cuotas mensuales ni suscripciones ocultas, ofrecemos un espacio infinito para tus archivos.
-                </p>
-            </section>
-            <section class="glass-card">
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-3">
-                    <i class="fas fa-server text-blue-500"></i> Nuestra Infraestructura
-                </h2>
-                <p class="text-sm text-slate-400 leading-relaxed">
-                    Operamos sobre nuestra propia arquitectura escalable. Garantizamos potencia, estabilidad y una latencia mínima para tus datos.
-                </p>
-            </section>
-        </div>
-
-        <!-- Galería de Interfaz -->
+        <!-- Galería (Lazy Loaded) -->
         <section class="space-y-6">
             <h3 class="text-xl font-bold px-2">Vistas del Ecosistema</h3>
             <div class="flex gap-6 overflow-x-auto no-scrollbar pb-4 px-2">
-                <img src="https://ilimited.one/v/kDGKfN" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 1">
-                <img src="https://ilimited.one/v/3JwWsi" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 2">
-                <img src="https://ilimited.one/v/29EHGf" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 3">
-            </div>
-        </section>
-
-        <!-- Novedades -->
-        <div id="novedades" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-card md:col-span-2">
-                <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
-                    <i class="fas fa-rocket text-blue-500"></i> Novedades Evolución v2.0
-                </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
-                    <ul class="space-y-4 text-slate-300">
-                        <li class="flex gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Registro con Google instantáneo</li>
-                        <li class="flex gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Panel de Usuario para gestión total</li>
-                    </ul>
-                    <ul class="space-y-4 text-slate-300">
-                        <li class="flex gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Reproductor multimedia avanzado</li>
-                        <li class="flex gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Sistema de Embeds para desarrolladores</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="glass-card bg-blue-900/10">
-                <h3 class="text-lg font-bold mb-3 flex items-center gap-2">
-                    <i class="fas fa-shield-alt text-blue-400"></i> Resiliencia
-                </h3>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                    Arquitectura redundante: restauración inmediata sin pérdida de datos en caso de incidentes.
-                </p>
-            </div>
-        </div>
-
-        <!-- Video y Seguridad -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="glass-card">
-                <h3 class="text-lg font-bold mb-4 text-red-500 text-center md:text-left">Protocolo de Seguridad</h3>
-                <ul class="text-xs text-slate-400 space-y-4">
-                    <li class="flex gap-3"><i class="fas fa-user-shield text-lg opacity-30"></i> Sube archivos privados en ZIP con contraseña.</li>
-                    <li class="flex gap-3"><i class="fas fa-ban text-lg opacity-30 text-red-500"></i> Enlaces con malware serán eliminados.</li>
-                    <li class="flex gap-3"><i class="fas fa-save text-lg opacity-30"></i> Guarda tus enlaces externamente para mayor seguridad.</li>
-                </ul>
-            </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CwK4SkF4B_E" allowfullscreen></iframe>
+                <img loading="lazy" src="https://ilimited.one/v/kDGKfN" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 1">
+                <img loading="lazy" src="https://ilimited.one/v/3JwWsi" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 2">
+                <img loading="lazy" src="https://ilimited.one/v/29EHGf" onclick="openLightbox(this.src)" class="img-gallery-item" alt="Panel 3">
             </div>
         </section>
 
         <!-- Comunidad -->
         <div id="comunidad" class="glass-card text-center py-12 bg-gradient-to-b from-blue-600/5 to-transparent">
-            <h2 class="text-3xl font-bold mb-4">KodxSocial</h2>
-            <p class="text-slate-400 mb-8 max-w-md mx-auto">Nuestro foro oficial y perfiles en redes sociales.</p>
-            <a href="https://kodxsocial.k.vu/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-2xl inline-block mb-12 transition-all hover:scale-105">
-                VISITAR FORO OFICIAL
-            </a>
+            <h2 class="text-3xl font-bold mb-4 text-white">KodxSocial</h2>
+            <a href="https://kodxsocial.k.vu/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-2xl inline-block mb-12 transition-all hover:scale-105">VISITAR FORO OFICIAL</a>
 
             <div class="social-grid max-w-6xl mx-auto px-2">
-                <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all">
-                    <i class="fab fa-whatsapp text-2xl text-green-500 mb-3"></i>
-                    <p class="text-[10px] font-bold uppercase tracking-widest">WhatsApp</p>
-                </a>
-                <a href="https://t.me/cloudilimited" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all">
-                    <i class="fab fa-telegram text-2xl text-sky-500 mb-3"></i>
-                    <p class="text-[10px] font-bold uppercase tracking-widest">Telegram</p>
-                </a>
-                <a href="https://mast.lat/@tntprojects" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all">
-                    <i class="fab fa-mastodon text-2xl text-purple-500 mb-3"></i>
-                    <p class="text-[10px] font-bold uppercase tracking-widest">Mastodon</p>
-                </a>
-                <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all">
-                    <i class="fab fa-youtube text-2xl text-red-500 mb-3"></i>
-                    <p class="text-[10px] font-bold uppercase tracking-widest">YouTube</p>
-                </a>
-                <a href="https://www.facebook.com/share/18Q67geZDX/" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all">
-                    <i class="fab fa-facebook text-2xl text-blue-600 mb-3"></i>
-                    <p class="text-[10px] font-bold uppercase tracking-widest">Facebook</p>
-                </a>
-                <button onclick="shareVercel()" class="p-5 glass-card hover:bg-white/5 transition-all">
-                    <i class="fas fa-share-alt text-2xl text-blue-400 mb-3"></i>
-                    <p class="text-[10px] font-bold uppercase tracking-widest">Difundir</p>
-                </button>
+                <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fab fa-whatsapp text-2xl text-green-500 mb-3"></i></a>
+                <a href="https://t.me/cloudilimited" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fab fa-telegram text-2xl text-sky-500 mb-3"></i></a>
+                <a href="https://mast.lat/@tntprojects" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fab fa-mastodon text-2xl text-purple-500 mb-3"></i></a>
+                <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fab fa-youtube text-2xl text-red-500 mb-3"></i></a>
+                <a href="https://www.facebook.com/share/18Q67geZDX/" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fab fa-facebook text-2xl text-blue-600 mb-3"></i></a>
+                <button onclick="shareVercel()" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fas fa-share-alt text-2xl text-blue-400 mb-3"></i></button>
             </div>
         </div>
     </main>
 
     <footer class="py-12 border-t border-white/5 text-center">
-        <p class="text-sm font-semibold text-slate-400">Plataforma gestionada por <span class="text-blue-500">KodxStudios</span></p>
-        <p class="text-[10px] text-slate-600 uppercase tracking-[0.4em] mt-3">© 2026 ILIMITED.</p>
+        <p class="text-sm font-semibold text-slate-400">© 2026 ILIMITED | KodxStudios</p>
     </footer>
 
-    <div id="lightbox" onclick="this.style.display='none'">
-        <img id="lightbox-img" src="" class="max-h-full max-w-full rounded-2xl shadow-2xl">
-    </div>
+    <div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img" src="" class="max-h-full max-w-full rounded-2xl shadow-2xl"></div>
 
     <script>
-        const TARGET_URL = "https://cloud.ilimited.workers.dev/";
+        // CONFIGURACIÓN DE ENLACES
+        const ACCESS_URL = "https://Ilimited.one";
+        const SHARE_URL = "https://freeilimited.k.vu/";
 
+        // Estadísticas en tiempo real (Simuladas)
         function updateLiveStats() {
             const uptime = (99.95 + (Math.random() * 0.04)).toFixed(2);
-            const latency = Math.floor(18 + (Math.random() * 27));
-            const cpuLoad = Math.floor(4 + (Math.random() * 14));
+            const latency = Math.floor(18 + (Math.random() * 12));
+            const cpuLoad = Math.floor(4 + (Math.random() * 8));
             document.getElementById('stat-uptime').innerText = uptime + '%';
             document.getElementById('stat-latency').innerText = latency + 'ms';
             if(document.getElementById('stat-load')) document.getElementById('stat-load').innerText = cpuLoad + '%';
         }
 
-        window.onload = function() {
+        window.addEventListener('load', () => {
             updateLiveStats();
-            setInterval(updateLiveStats, 4000);
-        };
+            setInterval(updateLiveStats, 5000);
+        });
 
         function openLightbox(src) {
             document.getElementById('lightbox-img').src = src;
             document.getElementById('lightbox').style.display = 'flex';
         }
 
+        // Copiar URL Principal
         function copyVercel() {
             const el = document.createElement('textarea');
-            el.value = TARGET_URL;
+            el.value = ACCESS_URL;
             document.body.appendChild(el);
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
             const btn = event.currentTarget;
+            const original = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-check text-green-500"></i> ¡Copiado!';
-            setTimeout(() => { btn.innerHTML = '<i class="fas fa-link opacity-50"></i> Copiar URL'; }, 2000);
+            setTimeout(() => { btn.innerHTML = original; }, 2000);
         }
 
+        // Copiar IDs de Donación
         function copyDonationID(text, provider) {
             const el = document.createElement('textarea');
             el.value = text;
@@ -697,16 +533,36 @@
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
-            
             const label = document.getElementById('copy-label-dav');
-            const originalText = label.innerHTML;
+            const original = label.innerHTML;
             label.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
-            setTimeout(() => { label.innerHTML = originalText; }, 2000);
+            setTimeout(() => { label.innerHTML = original; }, 2000);
         }
 
+        // Compartir URL de Difusión
         async function shareVercel() {
-            const data = { title: 'ILIMITED Cloud', text: 'Nube Ilimitada de KodxStudios', url: TARGET_URL };
-            if (navigator.share) { try { await navigator.share(data); } catch (e) {} } else { copyVercel(); }
+            if (navigator.share) { 
+                try { 
+                    await navigator.share({
+                        title: 'ILIMITED Cloud',
+                        text: 'Almacenamiento infinito gratuito de KodxStudios',
+                        url: SHARE_URL 
+                    }); 
+                } catch (e) {
+                    fallbackCopy(SHARE_URL);
+                } 
+            } else { 
+                fallbackCopy(SHARE_URL);
+            }
+        }
+
+        function fallbackCopy(url) {
+            const el = document.createElement('textarea');
+            el.value = url;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
         }
     </script>
 </body>
