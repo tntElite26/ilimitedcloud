@@ -175,7 +175,29 @@
             transition: color 0.3s ease;
         }
 
-        /* --- Estilos Redes Sociales Optimizados --- */
+        /* --- Estilos Formatos Compatibles --- */
+        .format-category {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+        .format-category:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        .extension-pill {
+            display: inline-block;
+            font-family: monospace;
+            font-size: 11px;
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 4px;
+        }
+
+        /* --- Estilos Redes Sociales --- */
         .social-btn {
             position: relative;
             display: flex;
@@ -189,37 +211,18 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
         }
-
-        .social-btn i {
-            font-size: 1.75rem;
-            margin-bottom: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .social-btn span {
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            opacity: 0.7;
-        }
-
-        /* Colores y Efectos Individuales */
+        .social-btn i { font-size: 1.75rem; margin-bottom: 8px; transition: all 0.3s ease; }
+        .social-btn span { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; }
         .btn-wa:hover { background: rgba(37, 211, 102, 0.1); border-color: #25d366; box-shadow: 0 0 20px rgba(37, 211, 102, 0.2); transform: translateY(-5px); }
         .btn-wa:hover i { color: #25d366; transform: scale(1.1); }
-        
         .btn-tg:hover { background: rgba(0, 136, 204, 0.1); border-color: #0088cc; box-shadow: 0 0 20px rgba(0, 136, 204, 0.2); transform: translateY(-5px); }
         .btn-tg:hover i { color: #0088cc; transform: scale(1.1); }
-
         .btn-md:hover { background: rgba(140, 146, 255, 0.1); border-color: #8c92ff; box-shadow: 0 0 20px rgba(140, 146, 255, 0.2); transform: translateY(-5px); }
         .btn-md:hover i { color: #8c92ff; transform: scale(1.1); }
-
         .btn-yt:hover { background: rgba(255, 0, 0, 0.1); border-color: #ff0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.2); transform: translateY(-5px); }
         .btn-yt:hover i { color: #ff0000; transform: scale(1.1); }
-
         .btn-fb:hover { background: rgba(24, 119, 242, 0.1); border-color: #1877f2; box-shadow: 0 0 20px rgba(24, 119, 242, 0.2); transform: translateY(-5px); }
         .btn-fb:hover i { color: #1877f2; transform: scale(1.1); }
-
         .btn-sh:hover { background: rgba(59, 130, 246, 0.1); border-color: #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); transform: translateY(-5px); }
         .btn-sh:hover i { color: #3b82f6; transform: rotate(15deg); }
 
@@ -239,8 +242,8 @@
             <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
                 <a href="#infraestructura" class="hover:text-white transition-colors">Infraestructura</a>
                 <a href="#comparativa" class="hover:text-white transition-colors">Comparativa</a>
+                <a href="#formatos" class="hover:text-white transition-colors">Formatos</a>
                 <a href="#donaciones" class="hover:text-white transition-colors">Donar</a>
-                <a href="#asociados" class="hover:text-white transition-colors">Asociados</a>
             </nav>
             <div class="flex items-center gap-4">
                 <div class="hidden sm:flex status-pill">
@@ -463,6 +466,101 @@
             </div>
         </section>
 
+        <!-- FORMATOS COMPATIBLES -->
+        <section id="formatos" class="space-y-8 px-2">
+            <div>
+                <h3 class="text-2xl font-bold mb-2">Formatos Soportados</h3>
+                <p class="text-slate-400 text-sm">Aceptamos casi cualquier tipo de archivo para tu flujo de trabajo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Documentos -->
+                <div class="format-category">
+                    <div class="flex items-center gap-3 mb-4 text-blue-400">
+                        <i class="fas fa-file-lines text-xl"></i>
+                        <h4 class="font-bold">Documentos</h4>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><span class="extension-pill">.pdf</span> PDF, Adobe Reader</li>
+                        <li><span class="extension-pill">.docx</span> Microsoft Word</li>
+                        <li><span class="extension-pill">.xlsx</span> Microsoft Excel</li>
+                        <li><span class="extension-pill">.pptx</span> PowerPoint</li>
+                        <li><span class="extension-pill">.txt</span> Texto plano</li>
+                    </ul>
+                </div>
+
+                <!-- Imágenes -->
+                <div class="format-category">
+                    <div class="flex items-center gap-3 mb-4 text-pink-400">
+                        <i class="fas fa-image text-xl"></i>
+                        <h4 class="font-bold">Imágenes</h4>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><span class="extension-pill">.jpg</span> Fotos estáticas</li>
+                        <li><span class="extension-pill">.png</span> Transparencias</li>
+                        <li><span class="extension-pill">.gif</span> Animaciones</li>
+                        <li><span class="extension-pill">.svg</span> Vectores</li>
+                        <li><span class="extension-pill">.webp</span> Optimizado web</li>
+                    </ul>
+                </div>
+
+                <!-- Video -->
+                <div class="format-category">
+                    <div class="flex items-center gap-3 mb-4 text-purple-400">
+                        <i class="fas fa-video text-xl"></i>
+                        <h4 class="font-bold">Video</h4>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><span class="extension-pill">.mp4</span> Alta compatibilidad</li>
+                        <li><span class="extension-pill">.mov</span> Apple QuickTime</li>
+                        <li><span class="extension-pill">.avi</span> Formato clásico</li>
+                        <li><span class="extension-pill">.mkv</span> Calidad HD</li>
+                    </ul>
+                </div>
+
+                <!-- Audio -->
+                <div class="format-category">
+                    <div class="flex items-center gap-3 mb-4 text-green-400">
+                        <i class="fas fa-music text-xl"></i>
+                        <h4 class="font-bold">Audio</h4>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><span class="extension-pill">.mp3</span> Estándar música</li>
+                        <li><span class="extension-pill">.wav</span> Sin compresión</li>
+                        <li><span class="extension-pill">.m4a</span> Apple Lossless</li>
+                        <li><span class="extension-pill">.flac</span> Alta Fidelidad</li>
+                    </ul>
+                </div>
+
+                <!-- Comprimidos -->
+                <div class="format-category">
+                    <div class="flex items-center gap-3 mb-4 text-orange-400">
+                        <i class="fas fa-box-archive text-xl"></i>
+                        <h4 class="font-bold">Comprimidos</h4>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><span class="extension-pill">.zip</span> Estándar universal</li>
+                        <li><span class="extension-pill">.rar</span> Compresión WinRAR</li>
+                        <li><span class="extension-pill">.7z</span> Compresión 7-Zip</li>
+                    </ul>
+                </div>
+
+                <!-- Ejecutables -->
+                <div class="format-category">
+                    <div class="flex items-center gap-3 mb-4 text-red-400">
+                        <i class="fas fa-laptop-code text-xl"></i>
+                        <h4 class="font-bold">Sistemas</h4>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><span class="extension-pill">.exe</span> Windows App</li>
+                        <li><span class="extension-pill">.apk</span> Android App</li>
+                        <li><span class="extension-pill">.dmg</span> macOS Installer</li>
+                        <li><span class="extension-pill">.iso</span> Imagen de disco</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <!-- DONACIONES -->
         <section id="donaciones" class="space-y-8 py-4">
             <div class="px-2 text-center md:text-left">
@@ -512,7 +610,7 @@
             </div>
         </section>
 
-        <!-- Comunidad - REDES SOCIALES MEJORADAS -->
+        <!-- Comunidad -->
         <div id="comunidad" class="glass-card text-center py-12 bg-gradient-to-b from-blue-600/5 to-transparent">
             <div class="mb-10 px-4">
                 <h2 class="text-4xl font-extrabold mb-2 text-white">KodxSocial</h2>
@@ -558,11 +656,9 @@
     <div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img" src="" class="max-h-full max-w-full rounded-2xl shadow-2xl"></div>
 
     <script>
-        // CONFIGURACIÓN DE ENLACES
         const ACCESS_URL = "https://Ilimited.one";
         const SHARE_URL = "https://freeilimited.k.vu/";
 
-        // Estadísticas en tiempo real (Simuladas)
         function updateLiveStats() {
             const uptime = (99.95 + (Math.random() * 0.04)).toFixed(2);
             const latency = Math.floor(18 + (Math.random() * 12));
@@ -582,7 +678,6 @@
             document.getElementById('lightbox').style.display = 'flex';
         }
 
-        // Copiar URL Principal
         function copyVercel() {
             const el = document.createElement('textarea');
             el.value = ACCESS_URL;
@@ -596,7 +691,6 @@
             setTimeout(() => { btn.innerHTML = original; }, 2000);
         }
 
-        // Copiar IDs de Donación
         function copyDonationID(text, provider) {
             const el = document.createElement('textarea');
             el.value = text;
@@ -610,7 +704,6 @@
             setTimeout(() => { label.innerHTML = original; }, 2000);
         }
 
-        // Compartir URL de Difusión
         async function shareVercel() {
             if (navigator.share) { 
                 try { 
@@ -634,7 +727,6 @@
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
-            // Mostrar un pequeño feedback visual si es posible
             const btn = document.querySelector('.btn-sh');
             if(btn) {
                 const span = btn.querySelector('span');
