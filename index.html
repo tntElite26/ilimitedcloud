@@ -106,7 +106,6 @@
         }
 
         .accent-border { border-left: 4px solid #3b82f6; }
-
         .no-scrollbar::-webkit-scrollbar { display: none; }
 
         .img-gallery-item {
@@ -118,7 +117,7 @@
             border: 2px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
             transition: transform 0.2s ease;
-            background: #0f172a; /* Placeholder color */
+            background: #0f172a;
         }
         .img-gallery-item:hover { transform: scale(1.02); }
 
@@ -175,6 +174,55 @@
             letter-spacing: -0.02em;
             transition: color 0.3s ease;
         }
+
+        /* --- Estilos Redes Sociales Optimizados --- */
+        .social-btn {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 10px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .social-btn i {
+            font-size: 1.75rem;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn span {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+        }
+
+        /* Colores y Efectos Individuales */
+        .btn-wa:hover { background: rgba(37, 211, 102, 0.1); border-color: #25d366; box-shadow: 0 0 20px rgba(37, 211, 102, 0.2); transform: translateY(-5px); }
+        .btn-wa:hover i { color: #25d366; transform: scale(1.1); }
+        
+        .btn-tg:hover { background: rgba(0, 136, 204, 0.1); border-color: #0088cc; box-shadow: 0 0 20px rgba(0, 136, 204, 0.2); transform: translateY(-5px); }
+        .btn-tg:hover i { color: #0088cc; transform: scale(1.1); }
+
+        .btn-md:hover { background: rgba(140, 146, 255, 0.1); border-color: #8c92ff; box-shadow: 0 0 20px rgba(140, 146, 255, 0.2); transform: translateY(-5px); }
+        .btn-md:hover i { color: #8c92ff; transform: scale(1.1); }
+
+        .btn-yt:hover { background: rgba(255, 0, 0, 0.1); border-color: #ff0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.2); transform: translateY(-5px); }
+        .btn-yt:hover i { color: #ff0000; transform: scale(1.1); }
+
+        .btn-fb:hover { background: rgba(24, 119, 242, 0.1); border-color: #1877f2; box-shadow: 0 0 20px rgba(24, 119, 242, 0.2); transform: translateY(-5px); }
+        .btn-fb:hover i { color: #1877f2; transform: scale(1.1); }
+
+        .btn-sh:hover { background: rgba(59, 130, 246, 0.1); border-color: #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); transform: translateY(-5px); }
+        .btn-sh:hover i { color: #3b82f6; transform: rotate(15deg); }
+
     </style>
 </head>
 <body class="pt-20">
@@ -464,18 +512,41 @@
             </div>
         </section>
 
-        <!-- Comunidad -->
+        <!-- Comunidad - REDES SOCIALES MEJORADAS -->
         <div id="comunidad" class="glass-card text-center py-12 bg-gradient-to-b from-blue-600/5 to-transparent">
-            <h2 class="text-3xl font-bold mb-4 text-white">KodxSocial</h2>
-            <a href="https://kodxsocial.k.vu/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-2xl inline-block mb-12 transition-all hover:scale-105">VISITAR FORO OFICIAL</a>
+            <div class="mb-10 px-4">
+                <h2 class="text-4xl font-extrabold mb-2 text-white">KodxSocial</h2>
+                <p class="text-slate-400 text-sm max-w-lg mx-auto mb-8">Únete a nuestra comunidad oficial para recibir soporte técnico y noticias exclusivas.</p>
+                <a href="https://kodxsocial.k.vu/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-2xl inline-block transition-all hover:scale-105 shadow-lg shadow-blue-500/20">
+                    VISITAR FORO OFICIAL
+                </a>
+            </div>
 
-            <div class="social-grid max-w-6xl mx-auto px-2">
-                <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fab fa-whatsapp text-2xl text-green-500 mb-3"></i></a>
-                <a href="https://t.me/cloudilimited" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fab fa-telegram text-2xl text-sky-500 mb-3"></i></a>
-                <a href="https://mast.lat/@tntprojects" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fab fa-mastodon text-2xl text-purple-500 mb-3"></i></a>
-                <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fab fa-youtube text-2xl text-red-500 mb-3"></i></a>
-                <a href="https://www.facebook.com/share/18Q67geZDX/" target="_blank" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fab fa-facebook text-2xl text-blue-600 mb-3"></i></a>
-                <button onclick="shareVercel()" class="p-5 glass-card hover:bg-white/5 transition-all"><i class="fas fa-share-alt text-2xl text-blue-400 mb-3"></i></button>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto px-4">
+                <a href="https://whatsapp.com/channel/0029Vb78J6Z05MUg27PnGT1m" target="_blank" class="social-btn btn-wa">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://t.me/cloudilimited" target="_blank" class="social-btn btn-tg">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://mast.lat/@tntprojects" target="_blank" class="social-btn btn-md">
+                    <i class="fab fa-mastodon"></i>
+                    <span>Mastodon</span>
+                </a>
+                <a href="https://youtube.com/@tntprojects26?si=AGiRRSAE8YWcjm-L" target="_blank" class="social-btn btn-yt">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="https://www.facebook.com/share/18Q67geZDX/" target="_blank" class="social-btn btn-fb">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <button onclick="shareVercel()" class="social-btn btn-sh">
+                    <i class="fas fa-share-nodes"></i>
+                    <span>Difundir</span>
+                </button>
             </div>
         </div>
     </main>
@@ -563,6 +634,14 @@
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
+            // Mostrar un pequeño feedback visual si es posible
+            const btn = document.querySelector('.btn-sh');
+            if(btn) {
+                const span = btn.querySelector('span');
+                const original = span.innerText;
+                span.innerText = "¡Copiado!";
+                setTimeout(() => { span.innerText = original; }, 2000);
+            }
         }
     </script>
 </body>
