@@ -12,14 +12,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://freeilimited.k.vu/">
     <meta property="og:title" content="ILIMITED | Enterprise Cloud">
-    <meta property="og:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 5GB sin restricciones.">
+    <meta property="og:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 1GB sin restricciones.">
     <meta property="og:image" content="https://ilimited.one/v/C7B4XR">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://freeilimited.k.vu/">
     <meta property="twitter:title" content="ILIMITED | Enterprise Cloud">
-    <meta property="twitter:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 5GB sin restricciones.">
+    <meta property="twitter:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 1GB sin restricciones.">
     <meta property="twitter:image" content="https://ilimited.one/v/C7B4XR">
 
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -226,6 +226,16 @@
         .btn-sh:hover { background: rgba(59, 130, 246, 0.1); border-color: #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); transform: translateY(-5px); }
         .btn-sh:hover i { color: #3b82f6; transform: rotate(15deg); }
 
+        /* Estilo para la nueva sección Premium */
+        .premium-section {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.15), rgba(15, 23, 42, 0.6));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
     </style>
 </head>
 <body class="pt-20">
@@ -240,6 +250,7 @@
                 <span class="font-bold text-xl tracking-tight">ILIMITED</span>
             </div>
             <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
+                <a href="#premium" class="hover:text-white transition-colors">Premium</a>
                 <a href="#infraestructura" class="hover:text-white transition-colors">Infraestructura</a>
                 <a href="#comparativa" class="hover:text-white transition-colors">Comparativa</a>
                 <a href="#formatos" class="hover:text-white transition-colors">Formatos</a>
@@ -267,7 +278,7 @@
                     Tecnología Propia 2026
                 </div>
                 <h1 class="text-4xl md:text-7xl font-extrabold leading-tight">Tu espacio <br><span class="text-blue-500">Sin Límites.</span></h1>
-                <p class="text-slate-400 text-lg max-w-xl">Almacenamiento infinito y gratuito. Subidas de hasta 5GB sin restricciones de hosting tradicional.</p>
+                <p class="text-slate-400 text-lg max-w-xl">Almacenamiento infinito y gratuito. Subidas de hasta 1GB sin restricciones de hosting tradicional.</p>
                 
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
                     <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="w-full sm:w-auto bg-slate-800 text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-3 border border-white/5 text-sm transition-all hover:bg-slate-700">
@@ -276,6 +287,47 @@
                     <button onclick="copyVercel()" class="w-full sm:w-auto bg-white/5 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 border border-white/5 text-sm transition-all hover:bg-white/10">
                         <i class="fas fa-link opacity-50"></i> Copiar URL
                     </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN NUEVA: PLANES PREMIUM ECONÓMICOS -->
+        <section id="premium" class="space-y-6">
+            <div class="premium-section shadow-2xl shadow-blue-900/20">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                    <div class="flex-1 text-center lg:text-left">
+                        <div class="inline-block px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-4 border border-blue-500/30">
+                            Próximamente
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-4">Planes Premium Económicos <i class="fas fa-rocket text-blue-400 ml-2"></i></h2>
+                        <p class="text-slate-300 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                            Estamos integrando nuevas membresías a bajo costo para usuarios que requieren potencia profesional. Rompe la barrera del Giga y toma el control absoluto de tus enlaces.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 flex-1 w-full max-w-lg">
+                        <div class="bg-slate-900/50 p-5 rounded-xl border border-white/5 text-center transition hover:border-blue-500/50 hover:bg-slate-800/50">
+                            <i class="fas fa-cloud-upload-alt text-blue-500 mb-3 text-2xl"></i>
+                            <h4 class="text-white font-bold text-sm">Subidas 4GB a 5GB</h4>
+                            <p class="text-slate-400 text-xs mt-1">Archivos masivos sin cortes.</p>
+                        </div>
+                        <div class="bg-slate-900/50 p-5 rounded-xl border border-white/5 text-center transition hover:border-blue-500/50 hover:bg-slate-800/50">
+                            <i class="fas fa-folder-open text-blue-500 mb-3 text-2xl"></i>
+                            <h4 class="text-white font-bold text-sm">Compartir Carpetas</h4>
+                            <p class="text-slate-400 text-xs mt-1">Envía directorios completos.</p>
+                        </div>
+                        <div class="bg-slate-900/50 p-5 rounded-xl border border-white/5 text-center transition hover:border-blue-500/50 hover:bg-slate-800/50">
+                            <i class="fas fa-link text-blue-500 mb-3 text-2xl"></i>
+                            <h4 class="text-white font-bold text-sm">Links Personalizados</h4>
+                            <p class="text-slate-400 text-xs mt-1">Tu marca en cada URL.</p>
+                        </div>
+                        <div class="bg-slate-900/50 p-5 rounded-xl border border-white/5 text-center transition hover:border-blue-500/50 hover:bg-slate-800/50">
+                            <i class="fas fa-stopwatch text-blue-500 mb-3 text-2xl"></i>
+                            <h4 class="text-white font-bold text-sm">Control de Caducidad</h4>
+                            <p class="text-slate-400 text-xs mt-1">Permanente o temporal.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -345,7 +397,6 @@
         <section class="py-4 border-y border-white/5">
             <p class="text-center md:text-left text-slate-500 text-xs font-bold uppercase tracking-widest mb-4 px-2">De los Creadores de</p>
             <div class="flex flex-wrap justify-center md:justify-start items-center gap-x-10 gap-y-4 px-2">
-                <span class="legacy-tag text-xl text-slate-300 hover:text-blue-400">Lolabits</span>
                 <span class="legacy-tag text-xl text-slate-300 hover:text-blue-400">BayFiles</span>
                 <span class="legacy-tag text-xl text-slate-300 hover:text-blue-400">AnonFiles</span>
                 <span class="legacy-tag text-xl text-slate-300 hover:text-blue-400">PlayGo!</span>
@@ -437,7 +488,7 @@
                                 ILIMITED
                             </td>
                             <td>ILIMITADO</td>
-                            <td>Hasta 5 GB</td>
+                            <td>Hasta 1 GB</td>
                             <td>NUNCA</td>
                             <td class="text-green-400 text-xs font-bold">Ninguna / Alta Velocidad</td>
                         </tr>
