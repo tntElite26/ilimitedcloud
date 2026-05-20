@@ -12,18 +12,19 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ilimited.one/">
     <meta property="og:title" content="ILIMITED | Enterprise Cloud">
-    <meta property="og:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 1GB sin restricciones.">
+    <meta property="og:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 2.5GB sin restricciones.">
     <meta property="og:image" content="https://ilimited.one/v/C7B4XR">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ilimited.one/">
     <meta property="twitter:title" content="ILIMITED | Enterprise Cloud">
-    <meta property="twitter:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 1GB sin restricciones.">
+    <meta property="twitter:description" content="Almacenamiento infinito y gratuito. Subidas de hasta 2.5GB sin restricciones.">
     <meta property="twitter:image" content="https://ilimited.one/v/C7B4XR">
 
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <!-- Carga de Tailwind CSS por CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -105,7 +106,6 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        .accent-border { border-left: 4px solid #3b82f6; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
 
         .img-gallery-item {
@@ -210,9 +210,10 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
+            text-decoration: none;
         }
         .social-btn i { font-size: 1.75rem; margin-bottom: 8px; transition: all 0.3s ease; }
-        .social-btn span { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; }
+        .social-btn span { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; color: #fff; }
         .btn-wa:hover { background: rgba(37, 211, 102, 0.1); border-color: #25d366; box-shadow: 0 0 20px rgba(37, 211, 102, 0.2); transform: translateY(-5px); }
         .btn-wa:hover i { color: #25d366; transform: scale(1.1); }
         .btn-tg:hover { background: rgba(0, 136, 204, 0.1); border-color: #0088cc; box-shadow: 0 0 20px rgba(0, 136, 204, 0.2); transform: translateY(-5px); }
@@ -223,10 +224,10 @@
         .btn-yt:hover i { color: #ff0000; transform: scale(1.1); }
         .btn-fb:hover { background: rgba(24, 119, 242, 0.1); border-color: #1877f2; box-shadow: 0 0 20px rgba(24, 119, 242, 0.2); transform: translateY(-5px); }
         .btn-fb:hover i { color: #1877f2; transform: scale(1.1); }
-        .btn-sh:hover { background: rgba(59, 130, 246, 0.1); border-color: #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); transform: translateY(-5px); }
+        .btn-sh:hover { background: rgba(59, 130, 246, 0.1); border-color: #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); transform: translateY(-5px); cursor: pointer; }
         .btn-sh:hover i { color: #3b82f6; transform: rotate(15deg); }
 
-        /* Estilo para la nueva sección Premium */
+        /* Estilo para la sección Premium */
         .premium-section {
             background: linear-gradient(135deg, rgba(30, 58, 138, 0.15), rgba(15, 23, 42, 0.6));
             border: 1px solid rgba(59, 130, 246, 0.3);
@@ -278,13 +279,13 @@
                     Tecnología Propia 2026
                 </div>
                 <h1 class="text-4xl md:text-7xl font-extrabold leading-tight">Tu espacio <br><span class="text-blue-500">Sin Límites.</span></h1>
-                <p class="text-slate-400 text-lg max-w-xl">Almacenamiento infinito y gratuito. Subidas de hasta 1GB sin restricciones de hosting tradicional.</p>
+                <p class="text-slate-400 text-lg max-w-xl">Almacenamiento infinito y gratuito. Subidas de hasta 2.5GB sin restricciones de hosting tradicional.</p>
                 
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
                     <a href="https://chat.whatsapp.com/EJ5mViUjIvy3J8Xgh09BPW?mode=gi_t" target="_blank" class="w-full sm:w-auto bg-slate-800 text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-3 border border-white/5 text-sm transition-all hover:bg-slate-700">
                         <i class="fab fa-whatsapp text-green-500 text-xl"></i> Soporte Oficial
                     </a>
-                    <button onclick="copyVercel()" class="w-full sm:w-auto bg-white/5 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 border border-white/5 text-sm transition-all hover:bg-white/10">
+                    <button onclick="copyVercel(this)" class="w-full sm:w-auto bg-white/5 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 border border-white/5 text-sm transition-all hover:bg-white/10">
                         <i class="fas fa-link opacity-50"></i> Copiar URL
                     </button>
                     <a href="https://ilimited.one" target="_blank" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-3 border border-white/5 text-sm transition-all shadow-lg shadow-blue-500/20 mt-2 sm:mt-0">
@@ -350,7 +351,7 @@
                         <i class="fas fa-triangle-exclamation text-amber-500"></i> Comunicado de Infraestructura y Sostenibilidad
                     </h4>
                     <p class="text-sm text-amber-100/90 leading-relaxed">
-                        Con el fin de garantizar la máxima estabilidad, velocidad de transferencia y la viabilidad a largo plazo de nuestra infraestructura Bare Metal, hemos realizado un ajuste técnico: el tamaño límite de subida individual para las cuentas gratuitas pasará de <strong class="text-white underline decoration-amber-500 decoration-2">5GB a 1GB por archivo</strong>. 
+                        Con el fin de garantizar la máxima estabilidad, velocidad de transferencia y la viabilidad a largo plazo de nuestra infraestructura Bare Metal, hemos realizado un ajuste técnico: el tamaño límite de subida individual para las cuentas gratuitas pasará de <strong class="text-white underline decoration-amber-500 decoration-2">5GB a 2.5GB por archivo</strong>. 
                         <br><br>
                         Queremos asegurar de forma categórica que esta medida no compromete nuestra esencia: <strong class="text-amber-400 font-extrabold">el espacio de almacenamiento total seguirá siendo 100% ILIMITADO y gratuito</strong> para toda la comunidad. Aquellos usuarios que requieran capacidades superiores de carga individual (4GB o 5GB) podrán optar muy pronto por nuestros nuevos Planes Premium Económicos.
                     </p>
@@ -504,7 +505,7 @@
                                 ILIMITED (Básico)
                             </td>
                             <td>ILIMITADO</td>
-                            <td>Hasta 1 GB</td>
+                            <td>Hasta 2.5 GB</td>
                             <td>NUNCA</td>
                             <td class="text-green-400 text-xs font-bold">Ninguna / Alta Velocidad</td>
                         </tr>
@@ -782,7 +783,7 @@
                     <i class="fab fa-facebook-f"></i>
                     <span>Facebook</span>
                 </a>
-                <button onclick="shareVercel()" class="social-btn btn-sh">
+                <button onclick="shareVercel()" class="social-btn btn-sh cursor-pointer border-none bg-transparent m-0">
                     <i class="fas fa-share-nodes"></i>
                     <span>Difundir</span>
                 </button>
@@ -804,9 +805,14 @@
             const uptime = (99.95 + (Math.random() * 0.04)).toFixed(2);
             const latency = Math.floor(18 + (Math.random() * 27));
             const cpuLoad = Math.floor(4 + (Math.random() * 14));
-            document.getElementById('stat-uptime').innerText = uptime + '%';
-            document.getElementById('stat-latency').innerText = latency + 'ms';
-            if(document.getElementById('stat-load')) document.getElementById('stat-load').innerText = cpuLoad + '%';
+            
+            const uptimeEl = document.getElementById('stat-uptime');
+            const latencyEl = document.getElementById('stat-latency');
+            const loadEl = document.getElementById('stat-load');
+            
+            if(uptimeEl) uptimeEl.innerText = uptime + '%';
+            if(latencyEl) latencyEl.innerText = latency + 'ms';
+            if(loadEl) loadEl.innerText = cpuLoad + '%';
         }
 
         window.addEventListener('load', () => {
@@ -815,21 +821,27 @@
         });
 
         function openLightbox(src) {
-            document.getElementById('lightbox-img').src = src;
-            document.getElementById('lightbox').style.display = 'flex';
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            if (lightbox && lightboxImg) {
+                lightboxImg.src = src;
+                lightbox.style.display = 'flex';
+            }
         }
 
-        function copyVercel() {
+        function copyVercel(btnElement) {
             const el = document.createElement('textarea');
             el.value = ACCESS_URL;
             document.body.appendChild(el);
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
-            const btn = event.currentTarget;
-            const original = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check text-green-500"></i> ¡Copiado!';
-            setTimeout(() => { btn.innerHTML = original; }, 2000);
+            
+            if (btnElement) {
+                const original = btnElement.innerHTML;
+                btnElement.innerHTML = '<i class="fas fa-check text-green-500"></i> ¡Copiado!';
+                setTimeout(() => { btnElement.innerHTML = original; }, 2000);
+            }
         }
 
         function copyDonationID(text, provider) {
@@ -840,9 +852,11 @@
             document.execCommand('copy');
             document.body.removeChild(el);
             const label = document.getElementById('copy-label-dav');
-            const original = label.innerHTML;
-            label.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
-            setTimeout(() => { label.innerHTML = original; }, 2000);
+            if(label) {
+                const original = label.innerHTML;
+                label.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+                setTimeout(() => { label.innerHTML = original; }, 2000);
+            }
         }
 
         async function shareVercel() {
@@ -871,9 +885,11 @@
             const btn = document.querySelector('.btn-sh');
             if(btn) {
                 const span = btn.querySelector('span');
-                const original = span.innerText;
-                span.innerText = "¡Copiado!";
-                setTimeout(() => { span.innerText = original; }, 2000);
+                if (span) {
+                    const original = span.innerText;
+                    span.innerText = "¡Copiado!";
+                    setTimeout(() => { span.innerText = original; }, 2000);
+                }
             }
         }
     </script>
